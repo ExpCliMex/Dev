@@ -1,0 +1,24 @@
+{
+  "name": "webclient_exp_cli_mex",
+  "version": "0.1.0",
+  "description": "Web client for blockcahin services",
+  "main": "main.js",
+  "scripts": {
+    "run": "node main.js",
+    "dev": "nodemon ./main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "anfejaramillo",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "sqlite3": "^5.0.8"
+  }
+}

@@ -160,3 +160,7 @@ artifacts/src/github.com/vf
 artifacts/ca-operations/clients
 artifacts/ca-operations/fabric-ca
 api/node_modules
+org1-wallet
+org2-wallet
+ApiBlockChain/config/connection-org1.json
+ApiBlockChain/config/connection-org2.json

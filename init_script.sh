@@ -2,7 +2,7 @@
 export createArtifactScriptPath=./artifacts/channel/
 export servicesConfigurationPath=./artifacts/
 export DBTEST_PATH=./smartcontracts/testdb/src/github.com/fabcar/go/
-export API_PATH=./api
+export API_PATH=./ApiBlockChain
 #Definition of variables of process
 export DOMAIN=mydomain
 export CHANNEL_NAME="mychannel"
@@ -64,8 +64,12 @@ createTestDataBaseSmartContract(){
     go mod tidy
     go mod vendor
     popd
+    showMessage "Dezplegando el SmartContract"
     ./deployChaincode.sh $CORE_PEER_TLS_ENABLED $ORDERER_CA $PEER0_ORG1_CA $PEER0_ORG2_CA $FABRIC_CFG_PATH $CHANNEL_NAME $DOMAIN $API_PATH $PRIVATE_DATA_CONFIG $DBTEST_PATH
-
+    showMessage "Inicializando Configuracion de la API"
+    pushd $API_PATH/config
+    ./generate-ccp.sh
+    popd
 }
 #Script execution
 echo "Quieres Volver a crear los crypto materials (s/n)?"
