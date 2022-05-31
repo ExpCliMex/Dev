@@ -126,7 +126,6 @@ artifacts/src/github.com/fabcar_contract_api/go/vendor
 artifacts/src/github.com/fabcar_contract_api/go/go.sum
 api/wallet
 
-channel-artifacts/mychannel.block
 addOrg3/crypto-config/peerOrganizations/org3.example.com
 original_config.pb
 config_block.pb
