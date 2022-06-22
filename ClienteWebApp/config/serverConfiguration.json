@@ -1,1 +1,9 @@
-{"initialized":true,"port":"4001","host":"localhost","jwt_expiretime":"36000","dbFilePath":"E:/Temporales/AppWeb/dbusers.db","defaultDbCredentials":{"full_name":"administrador","user_name":"admin","pwd":"admin123","phone":"1234567890","email":"test@test.com"}}
+{
+    "initialized":true,
+    "port":"4001",
+    "host":"localhost",
+    "jwt_expiretime":"36000",
+    "dbFilePath":"E:/Temporales/AppWeb/dbusers.db",
+    "defaultDbCredentials":{"full_name":"administrador","user_name":"admin","pwd":"admin123","phone":"1234567890","email":"test@test.com"},
+    "sizeOfSlicedFiles" : "3"
+}

@@ -8,7 +8,7 @@ module.exports = {
     //////////////////////////////////////////////////////////////////////
     //-----------------Funcion Split--------------------------------
     //////////////////////////////////////////////////////////////////////
-    split: async function (imagenPath, numMB, outputPath) {
+    split: async function (imagenPath, numMB, outputPath,namePart) {
         maxFileSize = 1024 * (numMB * 1000);
         // Crea el folder en caso de que no exista
         try {
@@ -18,7 +18,7 @@ module.exports = {
         } catch (err) {
             console.error(err);
         }
-        let PathParts = outputPath + "/part"; // nombra el prefijo de las partes
+        let PathParts = outputPath + "/"+namePart+"-"+"part"; // nombra el prefijo de las partes
         file2split = fs.readFileSync(imagenPath);
         let len = file2split.length;
         let numPart = Math.ceil(len / maxFileSize);
