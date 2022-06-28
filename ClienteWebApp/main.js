@@ -25,6 +25,7 @@ console.log("Initializing Web Client Server")
  */
  indexRouter = require('./routes/index')
  userRouter = require('./routes/users')
+ subirArchivo = require('./routes/subirArchivo')
 /**
  * Server Initialization
  */
@@ -33,11 +34,13 @@ init.initialize()
  * Server Middleware
  */
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 /**
  * Routes Definitions
  */
 app.use('/', indexRouter);
 app.use('/users', userRouter);
+app.use('/subirarchivo', subirArchivo);
 /**
  * Server Activation
  */
