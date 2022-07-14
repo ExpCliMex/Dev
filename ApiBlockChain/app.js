@@ -11,6 +11,7 @@ const jwt = require('jsonwebtoken');
 const bearerToken = require('express-bearer-token');
 const cors = require('cors');
 const constants = require('./config/constants.json')
+const tokenManagement = require('./token-management/routes')
 
 const host = process.env.HOST || constants.host;
 const port = process.env.PORT || constants.port;
@@ -20,6 +21,8 @@ const helper = require('./app/helper')
 const invoke = require('./app/invoke')
 const qscc = require('./app/qscc')
 const query = require('./app/query')
+
+const tokenManagementRouteRegex = /^\/token-management.*/
 
 app.options('*', cors());
 app.use(cors());
@@ -32,7 +35,7 @@ app.set('secret', 'thisismysecret');
 app.use(expressJWT({
     secret: 'thisismysecret'
 }).unless({
-    path: ['/users','/users/login', '/register']
+    path: ['/users','/users/login', '/register', tokenManagementRouteRegex]
 }));
 app.use(bearerToken());
 
@@ -44,6 +47,8 @@ app.use((req, res, next) => {
     if (req.originalUrl.indexOf('/users') >= 0 || req.originalUrl.indexOf('/users/login') >= 0 || req.originalUrl.indexOf('/register') >= 0) {
         return next();
     }
+    if (tokenManagementRouteRegex.test(req.originalUrl))
+        return next();
     var token = req.token;
     jwt.verify(token, app.get('secret'), (err, decoded) => {
         if (err) {
@@ -347,3 +352,5 @@ app.get('/qscc/channels/:channelName/chaincodes/:chaincodeName', async function 
         res.send(response_payload)
     }
 });
+
+app.use('/token-management', tokenManagement)
