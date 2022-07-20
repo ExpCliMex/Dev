@@ -1,0 +1,17 @@
+{
+    "host": "localhost",
+    "port": "4000",
+    "jwt_expiretime": "36000",
+    "channelName": "mychannel",
+    "CC_SRC_PATH": "../artifacts",
+    "eventWaitTime": "30000",
+    "admins": [
+        {
+            "username": "admin",
+            "secret": "adminpw"
+        }
+    ],
+    "privateKey": "e0eae9245fb02c43332ecd6ff9ded8ea464d3f0d80e1df2bc4aca2a2cd07db3e",
+    "ipcPath": "/home/gamino/Dev/gethProgram/data/geth.ipc",
+    "mainAddress": "0x013175f2a72e7bc42c6102b8977bdf7a697d54de"
+}
