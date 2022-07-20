@@ -52,7 +52,7 @@ async function giveTokens({ tokens, receiverAddress }) {
       .transfer(receiverAddress, tokens)
       .send({
         from: mainAddress,
-        gas: 200000,
+        gas: 30000,
       });
     console.log(`Transaction hash: ${receipt.transactionHash}`);
     return false;
