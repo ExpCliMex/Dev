@@ -266,6 +266,7 @@ module.exports = {
     getWalletPath: getWalletPath,
     getRegisteredUser: getRegisteredUser,
     isUserRegistered: isUserRegistered,
-    registerAndGerSecret: registerAndGerSecret
-
+    registerAndGerSecret: registerAndGerSecret,
+    getCaUrl: getCaUrl,
+    enrollAdmin: enrollAdmin
 }

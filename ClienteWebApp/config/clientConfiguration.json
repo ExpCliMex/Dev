@@ -1,10 +1,13 @@
 {
-    "host": "localhost", 
-    "port": "4000", 
-    "jwt_expiretime": "36000",
+    "protocol":"http",
+    "organization": "Org1",
+    "host": "localhost",
+    "port": "4001", 
+    "jwt_expiretime":"43200000",
     "channelName": "mychannel", 
     "CC_SRC_PATH": "../artifacts",
     "eventWaitTime": "30000",
+    "secret":"secret123",
     "admins": [
         {
             "username": "admin",

@@ -2,7 +2,9 @@
     "initialized":true,
     "port":"4002",
     "host":"localhost",
-    "jwt_expiretime":"36000",
+    "jwt_expiretime":"43200000",
+    "secret": "secret123",
+    "no_auth_needed": ["/users/login", "/register"],
     "dbFilePath":"E:/Temporales/AppWeb/dbusers.db",
     "defaultDbCredentials":{"full_name":"administrador","user_name":"admin","pwd":"admin123","phone":"1234567890","email":"test@test.com"},
     "sizeOfSlicedFiles" : "3"

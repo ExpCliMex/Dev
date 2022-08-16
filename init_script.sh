@@ -2,6 +2,7 @@
 export createArtifactScriptPath=./artifacts/channel/
 export servicesConfigurationPath=./artifacts/
 export DBTEST_PATH=./smartcontracts/testdb/src/github.com/fabcar/go/
+export SC_INSTITUTIONAL_PATH=./smartcontracts/institutional/src/github.com
 export API_PATH=./ApiBlockChain
 #Definition of variables of process
 export DOMAIN=mydomain
@@ -64,8 +65,17 @@ createTestDataBaseSmartContract(){
     go mod tidy
     go mod vendor
     popd
-    showMessage "Dezplegando el SmartContract"
+    showMessage "Desplegando el SmartContract"
     ./deployChaincode.sh $CORE_PEER_TLS_ENABLED $ORDERER_CA $PEER0_ORG1_CA $PEER0_ORG2_CA $FABRIC_CFG_PATH $CHANNEL_NAME $DOMAIN $API_PATH $PRIVATE_DATA_CONFIG $DBTEST_PATH
+    showMessage "Inicializando Configuracion de la API"
+    pushd $API_PATH/config
+    ./generate-ccp.sh
+    popd
+}
+deployInstitutionalChaincode(){
+    showMessage "Creating Smart Contract for Institutional"
+    showMessage "Desplegando el SmartContract"
+    ./deployInstitutionalChaincodes.sh $CORE_PEER_TLS_ENABLED $ORDERER_CA $PEER0_ORG1_CA $PEER0_ORG2_CA $FABRIC_CFG_PATH $CHANNEL_NAME $DOMAIN $API_PATH $PRIVATE_DATA_CONFIG $SC_INSTITUTIONAL_PATH
     showMessage "Inicializando Configuracion de la API"
     pushd $API_PATH/config
     ./generate-ccp.sh
@@ -98,4 +108,4 @@ fi
 sleep 5
 createChannel
 sleep 5
-createTestDataBaseSmartContract
+deployInstitutionalChaincode

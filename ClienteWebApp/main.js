@@ -4,6 +4,10 @@
 const express = require("express");
 const path = require("path");
 const expressEjsLayout = require('express-ejs-layouts')
+const bearerToken = require('express-bearer-token');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
 /**
  * App Variables
  */
@@ -11,21 +15,33 @@ const init = require("./app/initialize")
 const clientConnectionConfig = require("./config/clientConfiguration.json") //Config of connection to API of blockchain
 const serverConfig = require("./config/serverConfiguration.json") //web client server config
 const dbHelper = require("./app/dbHelper")
+const session = require("./app/session")
 const app = express();
 /**
  *  App Configuration
  */
 const port = serverConfig.port;
 const host = serverConfig.host;
+app.options('*', cors());
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+//session config
+session.configSession(app);
+app.use(cookieParser());
+app.use(session.authorizationMiddleware);
+//
 app.set('view engine', 'ejs');
 app.use(expressEjsLayout);
 console.log("Initializing Web Client Server")
 /**
  *  Routers
  */
- indexRouter = require('./routes/index')
- userRouter = require('./routes/users')
- subirArchivo = require('./routes/subirArchivo')
+indexRouter = require('./routes/index')
+userRouter = require('./routes/users')
+//subirArchivo = require('./routes/subirArchivo')
 /**
  * Server Initialization
  */
@@ -40,7 +56,7 @@ app.use(express.json());
  */
 app.use('/', indexRouter);
 app.use('/users', userRouter);
-app.use('/subirarchivo', subirArchivo);
+//app.use('/subirarchivo', subirArchivo);
 /**
  * Server Activation
  */

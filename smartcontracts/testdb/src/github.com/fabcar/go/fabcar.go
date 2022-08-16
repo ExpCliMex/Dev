@@ -689,7 +689,6 @@ func (s *SmartContract) queryPrivateDataHash(APIstub shim.ChaincodeStubInterface
 
 // The main function is only relevant in unit test mode. Only included here for completeness.
 func main() {
-
 	// Create a new Smart Contract
 	err := shim.Start(new(SmartContract))
 	if err != nil {

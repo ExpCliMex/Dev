@@ -4,8 +4,8 @@ const path = require("path")
 const log4js = require('log4js');
 const logger = log4js.getLogger('BasicNetwork');
 const util = require('util')
-
-const helper = require('./helper')
+const helper = require("./helper")
+const FabricCAServices = require('fabric-ca-client');
 
 const invokeTransaction = async (channelName, chaincodeName, fcn, args, username, org_name, transientData) => {
     try {
@@ -30,8 +30,6 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
             console.log('Run the registerUser.js application before retrying');
             return;
         }
-
-        
 
         const connectOptions = {
             wallet, identity: username, discovery: { enabled: true, asLocalhost: true },
@@ -63,7 +61,7 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
         } else if (fcn === "changeCarOwner") {
             result = await contract.submitTransaction(fcn, args[0], args[1]);
             message = `Successfully changed car owner with key ${args[0]}`
-        } else if (fcn == "createPrivateCar" || fcn =="updatePrivateData") {
+        } else if (fcn == "createPrivateCar" || fcn == "updatePrivateData") {
             console.log(`Transient data is : ${transientData}`)
             let carData = JSON.parse(transientData)
             console.log(`car data is : ${JSON.stringify(carData)}`)
@@ -99,4 +97,75 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
     }
 }
 
+const invokeTransactionAdmin = async (channelName, chaincodeName, fcn, args, org_name) => {
+    let result
+    let message;
+    try {
+        let ccp = await helper.getCCP(org_name)
+
+        const caURL = await helper.getCaUrl(org_name, ccp)
+        const ca = new FabricCAServices(caURL);
+
+        const walletPath = await helper.getWalletPath(org_name)
+        const wallet = await Wallets.newFileSystemWallet(walletPath);
+        console.log(`Wallet path: ${walletPath}`);
+
+        // Check to see if we've already enrolled the admin user.
+        let adminIdentity = await wallet.get('admin');
+        if (!adminIdentity) {
+            console.log('An identity for the admin user "admin" does not exist in the wallet');
+            await helper.enrollAdmin(org_name, ccp);
+            adminIdentity = await wallet.get('admin');
+            console.log("Admin Enrolled Successfully")
+        }
+
+        const connectOptions = {
+            wallet, identity: 'admin',
+            discovery: { enabled: true, asLocalhost: true },
+            eventHandlerOptions: {
+                commitTimeout: 100,
+                strategy: DefaultEventHandlerStrategies.NETWORK_SCOPE_ALLFORTX
+            }
+        }
+        // Create a new gateway for connecting to our peer node.
+        const gateway = new Gateway();
+        await gateway.connect(ccp, connectOptions);
+
+        // Get the network (channel) our contract is deployed to.
+        const network = await gateway.getNetwork(channelName);
+
+        const contract = network.getContract(chaincodeName);
+
+        //chaincode function invocation
+        const result = undefined;
+        if (Array.isArray(args)) {
+            result = await contract.submitTransaction(fcn, ...args);
+        } else {
+            result = await contract.submitTransaction(fcn, args);
+        }
+        const message = `Successfully invoke for function in smartcontract`
+        //result
+        await gateway.disconnect();
+
+        result = JSON.parse(result.toString());
+
+        let response = {
+            success: true,
+            message: message,
+            data: result
+        }
+
+        return response;
+    } catch (ex) {
+        console.log(`Getting error: ${ex}`)
+        let response = {
+            success: false,
+            message: ex.message,
+            data: result
+        }
+        return response;
+    }
+}
+
 exports.invokeTransaction = invokeTransaction;
+exports.invokeTransactionAdmin = invokeTransactionAdmin;

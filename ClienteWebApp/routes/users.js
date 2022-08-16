@@ -1,14 +1,39 @@
-
+const user_logic = require("../app/user")
 const express = require('express');
 const router = express.Router();
+const msg = require("../util/messages")
 
 //login handle
 router.get('/login', (req, res) => {
     res.render('login');
-})
+});
 router.get('/register', (req, res) => {
     res.render('register')
-})
+});
+
+router.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    var errors = [];
+    if (!username) {
+        errors.push(msg("user", "nousername", "es"));
+    }
+    if (!password) {
+        errors.push(msg("user", "nopassword", "es"));
+    }
+    if (errors.length > 0) {
+        res.render('login', [errors]);
+        return;
+    }
+    var res = user_logic.login(req, res, username, password);
+    // if (res){
+    //     req.session.user ={}
+    //     res.render("index",{})
+    // }
+    // else{
+    //     res.render(login,...)
+    // }
+});
+
 //Register handle
 router.post('/register', (req, res) => {
     const { name, user_name, email, password, password2 } = req.body;
