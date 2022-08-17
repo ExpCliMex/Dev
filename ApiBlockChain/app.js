@@ -11,6 +11,7 @@ const app = express();
 const bearerToken = require('express-bearer-token');
 const cors = require('cors');
 const constants = require('./config/constants.json')
+const tokenManagement = require('./token-management/routes')
 
 const host = process.env.HOST || constants.host;
 const port = process.env.PORT || constants.port;
@@ -23,6 +24,8 @@ const query = require('./app/query')
 const session = require("./app/session")
 
 //Server initialization
+const tokenManagementRouteRegex = /^\/token-management.*/
+
 app.options('*', cors());
 app.use(cors());
 app.use(bodyParser.json());
