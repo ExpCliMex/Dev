@@ -9,6 +9,33 @@
           "memberOnlyWrite": true
      },
      {
+          "name": "collection_institutional_user",
+          "policy": "OR('Org1MSP.member', 'Org2MSP.member')",
+          "requiredPeerCount": 0,
+          "maxPeerCount": 3,
+          "blockToLive": 1000000,
+          "memberOnlyRead": true,
+          "memberOnlyWrite": true
+     },
+     {
+          "name": "collection_institutional_person",
+          "policy": "OR('Org1MSP.member', 'Org2MSP.member')",
+          "requiredPeerCount": 0,
+          "maxPeerCount": 3,
+          "blockToLive": 1000000,
+          "memberOnlyRead": true,
+          "memberOnlyWrite": true
+     },
+     {
+          "name": "collection_institutional_institution",
+          "policy": "OR('Org1MSP.member', 'Org2MSP.member')",
+          "requiredPeerCount": 0,
+          "maxPeerCount": 3,
+          "blockToLive": 1000000,
+          "memberOnlyRead": true,
+          "memberOnlyWrite": true
+    },
+    {
           "name": "collectionCarPrivateDetails",
           "policy": "OR('Org1MSP.member')",
           "requiredPeerCount": 0,
@@ -19,5 +46,5 @@
           "endorsementPolicy": {
                "signaturePolicy": "OR('Org1MSP.member')"
           }
-     }
+    }
 ]
