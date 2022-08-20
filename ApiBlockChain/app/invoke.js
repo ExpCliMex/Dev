@@ -137,7 +137,7 @@ const invokeTransactionAdmin = async (channelName, chaincodeName, fcn, args, org
         const contract = network.getContract(chaincodeName);
 
         //chaincode function invocation
-        const result = undefined;
+        let result = undefined;
         if (Array.isArray(args)) {
             result = await contract.submitTransaction(fcn, ...args);
         } else {
