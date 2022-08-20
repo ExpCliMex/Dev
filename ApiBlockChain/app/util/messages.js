@@ -25,6 +25,8 @@ function getMessageUser(code, lang){
                     return "Password no encontrado en la peticion";
                 case "norole":
                     return "Rol del usuario no encontrado en la peticion";
+                case "noid":
+                    return "ID del usuario no encontrado en la petición";
                 default:
                     return "Codigo de mensaje no encontrado";
             }
@@ -43,7 +45,8 @@ function getMessageUser(code, lang){
                     return "Email not found";
                 case "nopassword":
                     return "Password not found";
-                
+                case "noid":
+                   return "ID not found";
                 default:
                     return "No message code founded";
             }
