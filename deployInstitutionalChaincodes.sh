@@ -137,20 +137,19 @@ chaincodeInvoke() {
 
 chaincodeQuery() {
     setGlobalsForPeer0Org2
-    peer chaincode query -C $1 -n $2 -c '{"function": "existsUser","Args":["admin"]}'
+    peer chaincode query -C $1 -n $2 -c '{"function": "readUser","Args":["{ \"id\": \"User1\" }"]}'
 }
 
 deployInstitutionalChaincode(){
     #Deploy Institutional-User
-    CC_RUNTIME_LANGUAGE="golang"
+    CC_RUNTIME_LANGUAGE="node"
     VERSION="1"
-    CC_SRC_PATH=$SC_INSTITUTIONAL_PATH/Institutional_User/
+    CC_SRC_PATH=$SC_INSTITUTIONAL_PATH
     CC_NAME="Institutional_User"
     #presetup
     echo Vendoring Go dependencies ...
     pushd $CC_SRC_PATH
-    go mod tidy
-    GO111MODULE=on go mod vendor
+    npm install
     popd
     echo Finished vendoring Go dependencies
     #deploy

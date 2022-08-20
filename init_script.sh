@@ -2,7 +2,7 @@
 export createArtifactScriptPath=./artifacts/channel/
 export servicesConfigurationPath=./artifacts/
 export DBTEST_PATH=./smartcontracts/testdb/src/github.com/fabcar/go/
-export SC_INSTITUTIONAL_PATH=./smartcontracts/institutional/src/github.com
+export SC_INSTITUTIONAL_PATH=./smartcontracts/institutionalJs/javascript/
 export API_PATH=./ApiBlockChain
 #Definition of variables of process
 export DOMAIN=mydomain
@@ -32,13 +32,13 @@ killDockerProcesses(){
 }
 renewDockerMaterials(){
     killDockerProcesses
-    showMessage "Prune Docker Images"
-    docker image prune -a -f
+    showMessage "Prune Docker Containers"
+    docker container prune -f
     showMessage "Prune Docker Volumes"
     docker volume prune -f
     showMessage "Prune Docker System"
-    docker system prune -f
-    docker system prune -a
+    # docker system prune -f
+    # docker system prune -a
     docker network prune -f
     showMessage "Docker prune finished"
 }
