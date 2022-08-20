@@ -41,8 +41,8 @@ setGlobalsForPeer0Org2(){
 
 createChannel(){
     rm -rf ./channel-artifacts/*
+    mkdir -p ./channel-artifacts
     setGlobalsForPeer0Org1
-    
     peer channel create -o localhost:7050 -c $CHANNEL_NAME \
     --ordererTLSHostnameOverride orderer.$DOMAIN.com \
     -f ./artifacts/channel/${CHANNEL_NAME}.tx --outputBlock ./channel-artifacts/${CHANNEL_NAME}.block \
