@@ -51,13 +51,16 @@ router.post('/users/', async (req, res) => {
   const tranConfig = req.body.transConfig;
   const { username, name, email, password, role, id } = req.body.data;
   const errors = [];
-  const userData = { username, name, email, password, role, id: id || String(uuidv4()) }
+  let userData = { username, name, email, password, role, id: id || String(uuidv4()) }
   const tranConfigValid = util.validateTransactionConfig(tranConfig, true);
   if(tranConfigValid){
-    console.log(`Transconfig.fcn == ${tranConfig.fcn}`)
     if(tranConfig.fcn === 'readUser' || tranConfig.fcn === 'deleteUser'){
       !id && errors.push(msg("user", 'noid', 'es'));
-    } else {
+    }
+    else if (tranConfig.fcn === 'queryUser') {
+      !req.body.data ? errors.push(msg('user', 'noid')) : userData = req.body.data;
+    }
+    else {
       Object.entries(userData).forEach(([fieldName, field]) => {
         if (!field) {
           errors.push(msg("user", `no${fieldName}`, 'es'))
@@ -83,21 +86,154 @@ router.post('/users/', async (req, res) => {
   res.json(responseBlockchain);
 })
 
-router.get('/users/:userId', (req, res) =>{
-  res.send('readUser')
+router.post('/staff', async (req, res) =>{
+  const tranConfig = req.body.transConfig;
+  const {
+    prefix,
+    specialty,
+    specialty_text,
+    subSpecialty,
+    colleage,
+    curp,
+    professionalLicense,
+    healtPersonalType,
+    state,
+    cellphone,
+    telephone,
+    id
+  } = req.body.data;
+  const errors = [];
+  let staffData = {
+    prefix,
+    specialty,
+    specialty_text,
+    subSpecialty,
+    colleage,
+    curp,
+    professionalLicense,
+    healtPersonalType,
+    state,
+    cellphone,
+    telephone,
+    id: id || String(uuidv4())
+  }
+  const tranConfigValid = util.validateTransactionConfig(tranConfig, true);
+  if(tranConfigValid){
+    if(tranConfig.fcn === 'institutional_staff:readStaff' || tranConfig.fcn === 'institutional_staff:deleteStaff'){
+      !id && errors.push(msg("user", 'noid', 'es'));
+    }
+    else if (tranConfig.fcn === 'institutional_staff:queryStaff') {
+      !req.body.data ? errors.push(msg('user', 'noid')) : staffData = req.body.data;
+    }
+    else {
+      Object.entries(staffData).forEach(([fieldName, field]) => {
+        if (!field) {
+          console.log(fieldName);
+          errors.push(msg("user", `no${fieldName}`, 'es'))
+        }
+      });
+    }
+  }
+  if (errors.length > 0 || !tranConfigValid) {
+    res.json([errors, tranConfigValid])
+    return;
+  }
+  const transArgs = JSON.stringify(staffData)
+  const responseBlockchain = await invokeTransactionAdmin(
+    tranConfig.channelName,
+    tranConfig.chaincodeName,
+    tranConfig.fcn,
+    transArgs,
+    tranConfig.org_name
+  )
+  if (!responseBlockchain.success) {
+    res.status(400);
+  }
+  res.json(responseBlockchain);
 })
 
-router.patch('/users/:userId', (req, res) =>{
-  res.send('updateUser')
-})
-
-router.delete('/users/:userId', (req, res) =>{
-  res.send('deleteUser')
-})
-
-router.get('/users/query/', (req, res)=>{
-  req.params
-  res.send('queryUser')
+router.post('/institution', async (req, res) =>{
+  const tranConfig = req.body.transConfig;
+  const {
+    highway,
+    highwayName,
+    streetNumber,
+    suiteNumber,
+    settlement,
+    settlementName,
+    locality,
+    municipalty,
+    state,
+    postalCode,
+    country,
+    telephone,
+    cellphone,
+    email,
+    timezone,
+    clues,
+    name,
+    sanitaryLicense,
+    establishmentName,
+    oid,
+    id,
+    } = req.body.data;
+  const errors = [];
+  let institutionData = {
+    highway,
+    highwayName,
+    streetNumber,
+    suiteNumber,
+    settlement,
+    settlementName,
+    locality,
+    municipalty,
+    state,
+    postalCode,
+    country,
+    telephone,
+    cellphone,
+    email,
+    timezone,
+    clues,
+    name,
+    sanitaryLicense,
+    establishmentName,
+    oid,
+    id: id || String(uuidv4())
+    }
+  const tranConfigValid = util.validateTransactionConfig(tranConfig, true);
+  if(tranConfigValid){
+    if(tranConfig.fcn === 'institutional_institution:readInstitution' || tranConfig.fcn === 'institutional_institution:deleteInstitution'){
+      !id && errors.push(msg("user", 'noid', 'es'));
+    }
+    else if (tranConfig.fcn === 'institutional_institution:queryInstitution') {
+      !req.body.data ? errors.push(msg('user', 'noid')) : institutionData = req.body.data;
+    }
+    else {
+      Object.entries(institutionData).forEach(([fieldName, field]) => {
+        if (!field) {
+          console.log(fieldName);
+          errors.push(msg("user", `no${fieldName}`, 'es'))
+        }
+      });
+    }
+  }
+  if (errors.length > 0 || !tranConfigValid) {
+    res.json([errors, tranConfigValid])
+    return;
+  }
+  const transArgs = JSON.stringify(institutionData)
+  const responseBlockchain = await invokeTransactionAdmin(
+    tranConfig.channelName,
+    tranConfig.chaincodeName,
+    tranConfig.fcn,
+    transArgs,
+    tranConfig.org_name
+  )
+  if (!responseBlockchain.success) {
+    res.status(400);
+  }
+  res.json(responseBlockchain);
 })
 
 module.exports = router;

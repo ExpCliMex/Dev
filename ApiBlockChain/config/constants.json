@@ -7,8 +7,8 @@
     "jwt_expiretime":"43200000",
     "channelName": "mychannel", 
     "CC_SRC_PATH": "../artifacts",
-    "no_auth_needed": ["/user/login", "/user/users"],
-    "eventWaitTime": "30000",
+    "no_auth_needed": ["/user/login", "/user/users", "/user/staff", "/user/institution"],
+    "eventwaittime": "30000",
     "admins": [
         {
             "username": "admin",

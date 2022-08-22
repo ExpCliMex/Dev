@@ -1,0 +1,445 @@
+{
+	"info": {
+		"_postman_id": "01e723b3-7c14-4eb5-80e0-0661edacca74",
+		"name": "Institutional",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17177253"
+	},
+	"item": [
+		{
+			"name": "Create User Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"username\": \"colaborador123\",\n        \"email\": \"colaborador@example.com\",\n        \"name\": \"Pedro\",\n        \"password\": \"test123\",\n        \"role\": \"admin\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"createUser\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read User Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"id\": \"d6f7ca07-1014-4bf8-98f1-e7bec7089889\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"readUser\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"username\": \"colaborador123\",\n        \"email\": \"colaborador@example.com\",\n        \"name\": \"Juan\",\n        \"password\": \"test123\",\n        \"role\": \"admin\",\n        \"id\": \"d6f7ca07-1014-4bf8-98f1-e7bec7089889\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"updateUser\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"id\": \"c0ab7b6d-40bb-4087-8b3f-45ee38e92ee9\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"deleteUser\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query User Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"selector\": {\n            \"id\": \"c0ab7b6d-40bb-4087-8b3f-45ee38e92ee9\"\n        }\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"queryUser\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Staff Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"prefix\":\"dr\",\n        \"specialty\":\"general\",\n        \"specialty_text\":\"Medicina General\",\n        \"subSpecialty\":\"Sistema respiratorio\",\n        \"colleage\":\"UV\",\n        \"curp\":\"GACC010167HVZ12\",\n        \"professionalLicense\":\"123\",\n        \"healtPersonalType\":\"a\",\n        \"state\":\"Veracruz\",\n        \"cellphone\":\"1234567890\",\n        \"telephone\":\"1234567891\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_staff:createStaff\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Staff Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"id\": \"7e1603a4-1d05-4340-bb49-3eb13565fa14\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_staff:readStaff\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Staff Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"id\": \"7e1603a4-1d05-4340-bb49-3eb13565fa14\",\n        \"prefix\":\"dr\",\n        \"specialty\":\"general\",\n        \"specialty_text\":\"Medicina General\",\n        \"subSpecialty\":\"Sistema respiratorio 2\",\n        \"colleage\":\"UV\",\n        \"curp\":\"GACC010167HVZ12\",\n        \"professionalLicense\":\"123\",\n        \"healtPersonalType\":\"a\",\n        \"state\":\"Nuevo León\",\n        \"cellphone\":\"1234567890\",\n        \"telephone\":\"1234567891\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_staff:updateStaff\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Staff Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"id\": \"7e1603a4-1d05-4340-bb49-3eb13565fa14\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_staff:deleteStaff\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Staff Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"selector\": {\n            \"id\": \"62d5765d-c99a-4050-a352-414eb74caf65\"\n        }\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_staff:queryStaff\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Institution Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"highway\":\"street\",\n        \"highwayName\":\"Atenas Veracruzana\",\n        \"streetNumber\":1,\n        \"suiteNumber\":\"1\",\n        \"settlement\":\"neighborhood\",\n        \"settlementName\":\"Obrero Campesina\",\n        \"locality\":\"Xalapa\",\n        \"municipalty\":\"Xalapa\",\n        \"state\":\"Veracruz\",\n        \"postalCode\":\"91100\",\n        \"country\":\"Mexico\",\n        \"telephone\":\"1234567890\",\n        \"cellphone\":\"1234567890\",\n        \"email\":\"example@institution.com\",\n        \"timezone\":\"Mexico City\",\n        \"clues\": \"1826713627323\",\n        \"name\": \"Hospital otro\",\n        \"sanitaryLicense\": \"KSDFSD-89FD8F-OIFODUIF\",\n        \"establishmentName\": \"Otro Hospital\",\n        \"oid\": \"12389479832568925\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_institution:createInstitution\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/institution",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"institution"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Institution Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"id\": \"85c44a7b-ccc2-4e74-bfcc-fd5e22e7152c\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_institution:readInstitution\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/institution",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"institution"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Institution Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"highway\":\"street\",\n        \"highwayName\":\"Atenas Veracruzana\",\n        \"streetNumber\":1,\n        \"suiteNumber\":\"1\",\n        \"settlement\":\"neighborhood\",\n        \"settlementName\":\"Obrero Campesina\",\n        \"locality\":\"Xalapa\",\n        \"municipalty\":\"Xalapa\",\n        \"state\":\"Veracruz\",\n        \"postalCode\":\"91100\",\n        \"country\":\"Mexico\",\n        \"telephone\":\"1234567890\",\n        \"cellphone\":\"1234567890\",\n        \"email\":\"example@institution.com\",\n        \"timezone\":\"Mexico City\",\n        \"clues\": \"1826713627323\",\n        \"name\": \"Hospital actualizado\",\n        \"sanitaryLicense\": \"KSDFSD-89FD8F-OIFODUIF\",\n        \"establishmentName\": \"Otro Hospital\",\n        \"oid\": \"12389479832568925\",\n        \"id\": \"85c44a7b-ccc2-4e74-bfcc-fd5e22e7152c\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_institution:updateInstitution\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/institution",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"institution"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Institution Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"id\": \"85c44a7b-ccc2-4e74-bfcc-fd5e22e7152c\"\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_institution:deleteInstitution\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/institution",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"institution"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Institution Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"selector\": {\n            \"id\": \"85c44a7b-ccc2-4e74-bfcc-fd5e22e7152c\"\n        }\n    },\n    \"transConfig\": {\n        \"channelName\": \"mychannel\",\n        \"chaincodeName\": \"Institutional_User\", \n        \"fcn\": \"institutional_institution:queryInstitution\", \n        \"org_name\": \"Org1\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/user/institution",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"user",
+						"institution"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
