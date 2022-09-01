@@ -107,7 +107,7 @@ dist
 .vscode-test
 
 artifacts/channel/mychannel.tx
-genesis.block
+#genesis.block
 artifacts/channel/Org1MSPanchors.tx
 artifacts/channel/Org2MSPanchors.tx
 artifacts/channel/crypto-config
