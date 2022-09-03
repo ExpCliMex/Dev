@@ -6,14 +6,15 @@ function configSession(app) {
     app.use(sessions({
         secret: serverConfig.secret,
         saveUninitialized: true,
-        cookie: {
-            maxAge: parseInt(serverConfig.jwt_expiretime)
-        },
-        resave: true
+        // cookie: {
+        //     maxAge: parseInt(serverConfig.jwt_expiretime)
+        // },
+        resave: false
     }));
 }
 
 function authorizationMiddleware(req, res, next) {
+    console.log("New request from session id " + req.session.id);
     if (req.session.users == undefined) {
         req.session.users = {}
     }

@@ -56,6 +56,18 @@ logger.level = 'debug';
 var server = http.createServer(app).listen(port, function () { console.log(`Server started on ${port}`) });
 logger.info('****************** SERVER STARTED ************************');
 logger.info('***************  http://%s:%s  ******************', host, port);
+
+//Ping to get session id (from web client) 
+app.get("/ping", function (req, res) {
+    let response = {
+        success: true,
+        message: "Connection succesfully",
+        data: new Date()
+    }
+    console.log("New session id created: " + req.session.id)
+    res.json(response);
+    return
+});
 // server.timeout = 240000;
 
 // app.use((req, res, next) => {

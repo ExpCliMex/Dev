@@ -25,9 +25,11 @@ router.post('/login', async function (req, res) {
         return;
     }
     var tranArgs = {
+      selector:{
         username: username,
         password: password
-    }
+      }
+    };
     let transArg = JSON.stringify(tranArgs);
     //channelName, chaincodeName, fcn, args, username, org_name, transientData
     var responseBlockchain = await invokeTransactionAdmin(
@@ -39,6 +41,7 @@ router.post('/login', async function (req, res) {
     );
     if (responseBlockchain.data.length > 0) {
         req.session.users[req.body.sessionId] = responseBlockchain.data[0];
+        delete responseBlockchain.data[0]["password"];
     }
     if (!responseBlockchain.success) {
         res.status(400);

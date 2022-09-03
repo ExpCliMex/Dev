@@ -5,14 +5,15 @@ function configSession(app) {
     app.use(sessions({
         secret: serverConfig.secret,
         saveUninitialized: true,
-        cookie: {
-            maxAge: parseInt(serverConfig.jwt_expiretime)
-        },
-        resave: true
+        // cookie: {
+        //     maxAge: parseInt(serverConfig.jwt_expiretime)
+        // },
+        resave: false
     }));
 }
 
 function authorizationMiddleware(req, res, next) {
+    console.log(req.session)
     if (serverConfig.no_auth_needed.indexOf(req.originalUrl) >= 0) {
         next()
         return;

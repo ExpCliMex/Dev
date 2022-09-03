@@ -4,7 +4,7 @@
     "host":"localhost",
     "jwt_expiretime":"43200000",
     "secret": "secret123",
-    "no_auth_needed": ["/users/login", "/register"],
+    "no_auth_needed": ["/users/login", "/register", "/users/logout"],
     "dbFilePath":"E:/Temporales/AppWeb/dbusers.db",
     "defaultDbCredentials":{"full_name":"administrador","user_name":"admin","pwd":"admin123","phone":"1234567890","email":"test@test.com"},
     "sizeOfSlicedFiles" : "3"

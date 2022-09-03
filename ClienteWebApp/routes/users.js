@@ -4,14 +4,20 @@ const router = express.Router();
 const msg = require("../util/messages")
 
 //login handle
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
     res.render('login');
 });
-router.get('/register', (req, res) => {
+router.get('/register', async (req, res) => {
     res.render('register')
 });
 
-router.post('/login', (req, res) => {
+router.get('/logout', async (req, res) => {
+    delete req.session.user;
+    delete req.session.apiHeaders;
+    res.redirect("/users/login");
+});
+
+router.post('/login', async (req, res) => {
     const { username, password } = req.body;
     var errors = [];
     if (!username) {
@@ -24,7 +30,10 @@ router.post('/login', (req, res) => {
         res.render('login', [errors]);
         return;
     }
-    var res = user_logic.login(req, res, username, password);
+    var result = await user_logic.login(req, res, username, password);
+    req.session.data = result;
+    res.render('login', [result]);
+    return
     // if (res){
     //     req.session.user ={}
     //     res.render("index",{})

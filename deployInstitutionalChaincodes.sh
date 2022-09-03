@@ -171,11 +171,11 @@ deployInstitutionalChaincode(){
     CC_SRC_PATH=$SC_INSTITUTIONAL_PATH
     CC_NAME="Institutional_User"
     #presetup
-    echo Vendoring Go dependencies ...
+    echo Vendoring dependencies ...
     pushd $CC_SRC_PATH
     npm install
     popd
-    echo Finished vendoring Go dependencies
+    echo Finished vendoring dependencies
     #deploy
     packageChaincode $CC_NAME $CC_SRC_PATH $CC_RUNTIME_LANGUAGE $VERSION
     installChaincode $CC_NAME
