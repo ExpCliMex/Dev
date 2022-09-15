@@ -24403,7 +24403,7 @@ div.tox .btn-group-lg > .btn-icon-text.tox-button .btn-icon-append,
 .auth-page .auth-side-wrapper {
   width: 100%;
   height: 100%;
-  background-image: url(https://www.news-medical.net/health/Blockchain-Applications-in-Healthcare.aspx);
+  background-image: ".../images/testimg.jpg";
   background-size: cover;
 }
 

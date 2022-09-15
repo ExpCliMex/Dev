@@ -1,32 +1,61 @@
-import React from 'react'
-import { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Navbar from './components/navbar/navbar';
-import Com from './components/com/com';
+import logo from './components/styles/images/logo2.png';
+import React from 'react';
+import {
+  BrowserRouter,
+  Routes, // instead of "Switch"
+  Route,
+} from "react-router-dom";
+import Calendar from './components/Calendar/calendar';
 import './App.css';
-import Paciente from './components/paciente';
-import Laboratorio from './components/laboratorio';
-import Hc from './components/hc';
-import NotFound from './components/notFound';
-import { Redirect } from 'react-router';
+import Navbar from './components/navbar/navbar';
+import ExpClinico from './components/expClinico/expClinico';
+import Paciente from './components/pacientes/paciente';
+import HistoriaClinica from './components/historiasClinicas/historiaClinica';
+import PacienteTest from './components/pacientes/pacienteTest';
+import Footer from './components/Footer/footer';
+import Login from './components/login/login';
+import { useLocation } from 'react-router-dom';
+import Registro from './components/registro/registro';
 
-class App extends Component {
-  render() { 
+function Prueba() {
+  let location = useLocation();
+  console.log(location);
+  if(location.pathname == "/login"){
+    return <Login></Login>
+  }
+  if(location.pathname == "/registro"){
+    return <Registro></Registro>
+  }
+  return (
+    <React.Fragment>
+    <Navbar></Navbar>
+    <Routes>
+      <Route path="/calendar" element={<Calendar />} />
+      <Route path="/paciente" element={<Paciente />} />
+      <Route path="/pacienteTest" element={<PacienteTest />} />
+      <Route path="/historiaClinica" element={<HistoriaClinica />} />
+    </Routes>
+    <Footer></Footer>
+    </React.Fragment>
+  );
+}
+
+
+function App () {
+
     return (
-      <main className="container">
-        <Navbar/>
-        <Switch>
-        <Route path="/com" component={Com}></Route>
-        <Route path="/paciente" component={Paciente}></Route>
-        <Route path="/laboratorio" component={Laboratorio}></Route>
-        <Route path="/hc" component={Hc}></Route>
-        <Route path="/notFound" component={NotFound}></Route>
-        <Redirect from="/" exact to="com"/>
-        <Redirect to="/notFound"/>
-        </Switch>
+      <main className='container'>
+        
+        <BrowserRouter>
+        <Prueba></Prueba>
+        </BrowserRouter>
+
+
+
+        
       </main>
     );
-  }
 }
+ 
 
 export default App;
