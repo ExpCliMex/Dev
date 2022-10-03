@@ -1,5 +1,6 @@
 const sessions = require('express-session');
 const serverConfig = require("../config/serverConfiguration.json");
+const node_env = process.env.NODE_ENV || "DEBUG";
 
 function configSession(app) {
     app.use(sessions({
@@ -14,6 +15,10 @@ function configSession(app) {
 
 function authorizationMiddleware(req, res, next) {
     console.log(req.session)
+    if(node_env !== 'PRODUCTION' && req.originalUrl.indexOf("test" >= 0)){
+        next()
+        return;
+    }
     if (serverConfig.no_auth_needed.indexOf(req.originalUrl) >= 0) {
         next()
         return;

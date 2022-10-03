@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/css/demo3/style.css";
 import "../styles/fonts/feather-font/css/iconfont.css";
+import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { FormRenderer, FormWrapper } from "./../form/FormRenderer"
 
@@ -19,6 +20,17 @@ function Card({ children }) {
 
 export default function Paciente() {
   const { register, watch, handleSubmit } = useForm();
+  const handleSubmit2 = (e)=>{
+    e.preventDefault();
+    const data = new FormData(e.target);
+    let s = Object.fromEntries(data.entries());
+    console.log(s)
+    axios.post(`http://localhost:4002/test/form_test`,s)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      })
+  }
   const onSubmit = (data) => console.log(data);
   let generalPatientInformationFields = [
     {
@@ -407,7 +419,7 @@ export default function Paciente() {
           </li>
         </ul>
       </div>
-      <FormWrapper onSubmit={handleSubmit(onSubmit)}>
+      <FormWrapper onSubmit={handleSubmit2}>
         <div className="card card-body">
           <div className="page wrapper">
             <div className="page-content">

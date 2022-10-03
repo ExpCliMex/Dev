@@ -20,8 +20,9 @@ const app = express();
 /**
  *  App Configuration
  */
-const port = serverConfig.port;
-const host = serverConfig.host;
+const port = process.env.PORT || serverConfig.port;
+const host = process.env.HOST || serverConfig.host;
+const node_env = process.env.NODE_ENV || "DEBUG";
 app.options('*', cors());
 app.use(cors());
 app.use(bodyParser.json());
@@ -41,6 +42,8 @@ console.log("Initializing Web Client Server")
  */
 indexRouter = require('./routes/index')
 userRouter = require('./routes/users')
+//Test routers
+testRouter = require('./routes/testRoutes')
 //subirArchivo = require('./routes/subirArchivo')
 /**
  * Server Initialization
@@ -57,6 +60,10 @@ app.use(express.json());
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 //app.use('/subirarchivo', subirArchivo);
+// Test routes, only for NONPRODUCTION executions
+if(node_env !== 'PRODUCTION'){
+    app.use('/test', testRouter);
+}
 /**
  * Server Activation
  */

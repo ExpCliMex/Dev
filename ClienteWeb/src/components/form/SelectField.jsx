@@ -17,6 +17,7 @@ function SelectField({
       defaultValue={defaultValue}
       className={inputClassName}
       id={id}
+      name={id}
     >
       {data.map(({ label, value }) => (
         <option key={value} value={value}>

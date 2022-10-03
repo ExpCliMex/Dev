@@ -12,6 +12,7 @@ function CheckboxField({
     <input
       type="checkbox"
       id={id}
+      name={id}
       className={inputClassName}
     />
     <Label htmlFor={id} className="form-check-label">
