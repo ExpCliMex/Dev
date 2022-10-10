@@ -1,13 +1,20 @@
 {
-    "protocol":"http",
+    "protocol": "http",
     "organization": "Org1",
     "host": "localhost",
-    "port": "4001", 
+    "port": "4001",
     "secret": "secret123",
-    "jwt_expiretime":"43200000",
-    "channelName": "mychannel", 
+    "jwt_expiretime": "43200000",
+    "channelName": "mychannel",
     "CC_SRC_PATH": "../artifacts",
-    "no_auth_needed": ["/user/login", "/user/users", "/user/staff", "/user/institution", "/ping"],
+    "no_auth_needed": [
+        "/user/login",
+        "/user/users",
+        "/user/staff",
+        "/user/institution",
+        "/ping",
+        "/user/constants-options/readAll"
+    ],
     "eventwaittime": "30000",
     "admins": [
         {

@@ -2,7 +2,6 @@
 const { Contract, Context } = require('fabric-contract-api');
 
 const collection = 'collection_institutional_user';
-// TODO: hacer crud
 class institutional_user extends Contract {
   async initLedger(ctx) {
     console.info('Inicializar ledger');

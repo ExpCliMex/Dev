@@ -1,5 +1,5 @@
 import logo from './components/styles/images/logo2.png';
-import React from 'react';
+import React, {Suspense} from 'react';
 import {
   BrowserRouter,
   Routes, // instead of "Switch"
@@ -16,10 +16,11 @@ import Footer from './components/Footer/footer';
 import Login from './components/login/login';
 import { useLocation } from 'react-router-dom';
 import Registro from './components/registro/registro';
+import  './i18n';
+import { useTranslation } from 'react-i18next';
 
 function Prueba() {
   let location = useLocation();
-  console.log(location);
   if(location.pathname == "/login"){
     return <Login></Login>
   }
@@ -42,20 +43,17 @@ function Prueba() {
 
 
 function App () {
-
+  const { t } = useTranslation();
     return (
+      <Suspense fallback="...is loading">
       <main className='container'>
-        
         <BrowserRouter>
         <Prueba></Prueba>
         </BrowserRouter>
-
-
-
-        
       </main>
+        </Suspense>
     );
 }
- 
+
 
 export default App;

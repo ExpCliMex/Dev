@@ -239,4 +239,23 @@ router.post('/institution', async (req, res) =>{
   res.json(responseBlockchain);
 })
 
+router.post('/constants-options/readAll', async (req, res) => {
+  const tranConfig = req.body.transConfig;
+  const tranConfigValid = util.validateTransactionConfig(tranConfig, true);
+  if (!tranConfigValid)
+    return res.json([[], tranConfigValid])
+  const transArgs = ''
+  const responseBlockchain = await invokeTransactionAdmin(
+    tranConfig.channelName,
+    tranConfig.chaincodeName,
+    tranConfig.fcn,
+    transArgs,
+    tranConfig.org_name
+  )
+  if (!responseBlockchain.success) {
+    res.status(400)
+  }
+  res.json(responseBlockchain);
+})
+
 module.exports = router;

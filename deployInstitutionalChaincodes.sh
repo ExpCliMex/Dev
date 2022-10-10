@@ -155,6 +155,28 @@ chaincodeInvoke() {
         --peerAddresses localhost:9051 \
         --tlsRootCertFiles $7 \
         -c '{"function": "institutional_institution:initLedger","Args":[]}'
+
+    peer chaincode invoke -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.$1.com \
+        --tls $2 \
+        --cafile $3 \
+        -C $4 -n $5 \
+        --peerAddresses localhost:7051 \
+        --tlsRootCertFiles $6 \
+        --peerAddresses localhost:9051 \
+        --tlsRootCertFiles $7 \
+        -c '{"function": "institutional_ConstantsOptions:initLedger","Args":[]}'
+
+    peer chaincode invoke -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.$1.com \
+        --tls $2 \
+        --cafile $3 \
+        -C $4 -n $5 \
+        --peerAddresses localhost:7051 \
+        --tlsRootCertFiles $6 \
+        --peerAddresses localhost:9051 \
+        --tlsRootCertFiles $7 \
+        -c '{"function": "institutional_Patient:initLedger","Args":[]}'
 }
 
 chaincodeQuery() {
@@ -162,6 +184,7 @@ chaincodeQuery() {
     peer chaincode query -C $1 -n $2 -c '{"function": "institutional_user:readUser","Args":["{ \"id\": \"User1\" }"]}'
     peer chaincode query -C $1 -n $2 -c '{"function": "institutional_staff:readStaff","Args":["{ \"id\": \"Staff1\" }"]}'
     peer chaincode query -C $1 -n $2 -c '{"function": "institutional_institution:readInstitution","Args":["{ \"id\": \"Institution1\" }"]}'
+    peer chaincode query -C $1 -n $2 -c '{"function": "institutional_ConstantsOptions:readAllConstantOption","Args":[]}'
 }
 
 deployInstitutionalChaincode(){
