@@ -13,6 +13,9 @@
         "/user/staff",
         "/user/institution",
         "/ping",
+        "/user/patient",
+        "/user/practitioner",
+        "/user/json/constants",
         "/user/constants-options/readAll"
     ],
     "eventwaittime": "30000",

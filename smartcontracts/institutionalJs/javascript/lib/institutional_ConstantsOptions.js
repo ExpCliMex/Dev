@@ -1,5 +1,6 @@
 'use strict';
 const { Contract, Context } = require('fabric-contract-api');
+const fs = require('fs');
 
 /**
  * Dropdown constants collection
@@ -14,13 +15,16 @@ const { Contract, Context } = require('fabric-contract-api');
  */
 
 const collection = 'collection_institutional_ConstantsOptions';
+const labels_filename = './lib/Etiquetas_EhyaTech.json';
 
 class institutional_ConstantsOptions extends Contract {
   async initLedger (ctx) {
-    console.info('Inicializar ledger');
+    console.info('Inicializar ledger Constants Options');
     /**
      * @type {ConstantOption[]} constantsOptions
      */
+    const rawdata = fs.readFileSync(labels_filename);
+    const constantsOptionsData = JSON.parse(rawdata);
     const constantsOptions = [
       {
         id: 'ConstantOption1',
@@ -86,14 +90,14 @@ class institutional_ConstantsOptions extends Contract {
       }
 
     ];
-    for (let i = 0; i < constantsOptions.length; i++) {
-      const constantOption = constantsOptions[i];
+    for (let i = 0; i < constantsOptionsData.length; i++) {
+      const constantOption = constantsOptionsData[i];
       await ctx.stub.putPrivateData(
         collection,
-        constantOption.id,
+        constantOption.Id,
         Buffer.from(JSON.stringify(constantOption))
       );
-      console.info(`Added constant_type: ${constantOption.constant_type}, language ${constantOption.language}`);
+      console.info(`Added constant_type: ${constantOption.constant_type}, language ${constantOption.Lenguage}`);
     }
     console.info('Finaliza inicialización ledger');
   }

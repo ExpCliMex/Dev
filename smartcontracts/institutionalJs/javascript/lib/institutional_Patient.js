@@ -1,5 +1,6 @@
 'use strict';
 const { Contract, Context } = require('fabric-contract-api');
+const Fhir = require('fhir').Fhir;
 
 /**
  * Name type
@@ -95,6 +96,7 @@ class institutional_Patient extends Contract {
     const patients = [
       {
         degreeCompleted: 'HS',
+        id: '6969840',
         birthPlace: 'Rio Verde, San Luis Potosí',
         religion: 'Católico',
         occupationalData: 'Agricultor y recolector',
@@ -205,7 +207,7 @@ class institutional_Patient extends Contract {
       const patient = patients[i];
       await ctx.stub.putPrivateData(
         collection,
-        patient.curp,
+        patient.id,
         Buffer.from(JSON.stringify(patient))
       );
       console.info(`Added patient ${i+1}`);
@@ -213,35 +215,39 @@ class institutional_Patient extends Contract {
     console.info('Finaliza inicialización ledger');
   }
 
-  async createConstantOption (ctx, constantOptionData) {
+  async createPatient (ctx, patientData) {
     console.info(`### START: Create ${collection} ###`);
-    const constantOption = JSON.parse(constantOptionData.toString());
-    await ctx.stub.putPrivateData(
-      collection,
-      constantOption.id,
-      Buffer.from(constantOptionData)
-    );
+    const patient = JSON.parse(patientData.toString());
+    const fhir = new Fhir();
+    const results = fhir.validate(patient);
+    if (results.valid){
+      await ctx.stub.putPrivateData(
+        collection,
+        patient.id,
+        Buffer.from(JSON.stringify(patient))
+      );
+    }
     console.info(`### END: Create ${collection} ###`);
-    return constantOptionData;
+    return JSON.stringify({results, patient});
   }
 
-  async readConstantOption (ctx, constantOptionData) {
+  async readPatient (ctx, patientData) {
     console.info(`### START: Read ${collection} ###`);
-    const constantOption = JSON.parse(constantOptionData.toString());
-    const constantOptionId = constantOption.id;
-    const constantOptionAsBytes = await ctx.stub.getPrivateData(collection, constantOptionId);
-    if (!constantOptionAsBytes || constantOptionAsBytes.length === 0) {
-      throw new Error(`${constantOptionId} does not exist`);
+    const patient = JSON.parse(patientData.toString());
+    const patientId = patient.id;
+    const patientAsBytes = await ctx.stub.getPrivateData(collection, patientId);
+    if (!patientAsBytes || patientAsBytes.length === 0) {
+      throw new Error(`${patientId} does not exist`);
     }
     console.info(`### END: Read ${collection} ###`);
-    return constantOptionAsBytes.toString();
+    return patientAsBytes.toString();
   }
 
   /**
-   * Query constantOption
+   * Query patient
    * @param {Context} ctx
    */
-  async readAllConstantOption (ctx) {
+  async readAllPatient (ctx) {
     console.info(`### START: Read ${collection} ###`);
     const startKey = '';
     const endKey = '';
@@ -265,52 +271,44 @@ class institutional_Patient extends Contract {
     return JSON.stringify(allResults);
   }
 
-  async updateConstantOption (ctx, constantOptionData) {
+  async updatePatient (ctx, patientData) {
     console.info(`### START: Update ${collection} ###`);
-    const constantOption = JSON.parse(constantOptionData.toString());
-    const {
-      constantOptionname,
-      name,
-      email,
-      password,
-      role,
-      id: constantOptionId
-    } = constantOption;
-    console.info(`Type of constantOptionId: ${typeof constantOptionId}`);
-    const constantOptionAsBytes = await ctx.stub.getPrivateData(collection, constantOptionId);
-    if (!constantOptionAsBytes || constantOptionAsBytes.length === 0) {
-      throw new Error(`${constantOptionId} does not exist`);
+    const patient = JSON.parse(patientData.toString());
+    const {id: patientId} = patient;
+    console.info(`Type of patientId: ${typeof patientId}`);
+    const patientAsBytes = await ctx.stub.getPrivateData(collection, patientId);
+    if (!patientAsBytes || patientAsBytes.length === 0) {
+      throw new Error(`${patientId} does not exist`);
     }
-    const oldconstantOption = JSON.parse(constantOptionAsBytes.toString());
-    const updatedconstantOption = {
-      constantOptionname,
-      name,
-      email,
-      password,
-      role
-    };
-    const newconstantOption = { ...oldconstantOption, ...updatedconstantOption };
-    await ctx.stub.putPrivateData(collection, constantOptionId, Buffer.from(JSON.stringify(newconstantOption)));
+    const fhir = new Fhir();
+    const results = fhir.validate(patient);
+    if (results.valid){
+      await ctx.stub.putPrivateData(
+        collection,
+        patientId,
+        Buffer.from(JSON.stringify(patient))
+      );
+    }
     console.info(`### END: Update ${collection} ###`);
-    return newconstantOption;
+    return JSON.stringify(patient);
   }
 
-  async deleteconstantOption (ctx, constantOptionData) {
+  async deletepatient (ctx, patientData) {
     console.info(`### START: Delete ${collection} ###`);
-    const constantOption = JSON.parse(constantOptionData.toString());
-    await ctx.stub.deletePrivateData(collection, constantOption.id);
+    const patient = JSON.parse(patientData.toString());
+    await ctx.stub.deletePrivateData(collection, patient.id);
     console.info(`### END: Delete ${collection} ###`);
     return { deleted: true };
   }
 
   /**
-   * Query constantOption
+   * Query patient
    * @param {Context} ctx
-   * @param {string} constantOptionData
+   * @param {string} patientData
    */
-  async queryconstantOption (ctx, constantOptionData) {
+  async querypatient (ctx, patientData) {
     console.info(`### START: Query ${collection} ###`);
-    const query = constantOptionData.toString();
+    const query = patientData.toString();
     const resultsResponse = await ctx.stub.getPrivateDataQueryResult(collection, query);
     const resultsIterator = resultsResponse.iterator;
     const allResults = [];

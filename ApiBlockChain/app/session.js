@@ -18,7 +18,7 @@ function authorizationMiddleware(req, res, next) {
     if (req.session.users == undefined) {
         req.session.users = {}
     }
-    if (serverConfig.no_auth_needed.indexOf(req.originalUrl) >= 0) {
+    if (serverConfig.no_auth_needed.indexOf(req.path) >= 0) {
         next()
         return;
     }

@@ -7,6 +7,8 @@ const msg = require("../util/messages")
 const util = require("../util/util")
 const invokeTransactionAdmin = require("../invoke").invokeTransactionAdmin;
 const { v4: uuidv4 } = require('uuid');
+const en = require('../locales/en/translation.json')
+const es = require('../locales/es/translation.json')
 
 router.post('/login', async function (req, res) {
     var tranConfig = req.body.transConfig;//{channelName, chaincodeName, fcn, org_name}
@@ -256,6 +258,61 @@ router.post('/constants-options/readAll', async (req, res) => {
     res.status(400)
   }
   res.json(responseBlockchain);
+})
+
+router.post('/patient', async (req, res) => {
+   const tranConfig = req.body.transConfig;
+  const tranConfigValid = util.validateTransactionConfig(tranConfig, true);
+  if (!tranConfigValid)
+    return res.json([[], tranConfigValid])
+  const transArgs = JSON.stringify(req.body.data)
+  // TODO: Cambiar este invokeTransactionAdmin por invokeTransaction
+  const responseBlockchain = await invokeTransactionAdmin(
+    tranConfig.channelName,
+    tranConfig.chaincodeName,
+    tranConfig.fcn,
+    transArgs,
+    tranConfig.org_name
+  )
+  if (!responseBlockchain.success) {
+    res.status(400)
+  }
+  res.json(responseBlockchain);
+});
+
+router.post('/practitioner', async (req, res) => {
+  const tranConfig = req.body.transConfig;
+  const tranConfigValid = util.validateTransactionConfig(tranConfig, true);
+  if (!tranConfigValid)
+    return res.json([[], tranConfigValid])
+  const transArgs = JSON.stringify(req.body.data)
+  // TODO: Cambiar este invokeTransactionAdmin por invokeTransaction
+  const responseBlockchain = await invokeTransactionAdmin(
+    tranConfig.channelName,
+    tranConfig.chaincodeName,
+    tranConfig.fcn,
+    transArgs,
+    tranConfig.org_name
+  )
+  if (!responseBlockchain.success) {
+    res.status(400)
+  }
+  res.json(responseBlockchain);
+});
+
+router.get('/json/constants', async (req, res)=> {
+  const {lngs} = req.query
+  if (!lngs) return res.status(405).send('Not allowed')
+
+  if (lngs === 'es') {
+    return res.json(es)
+  }
+
+  if (lngs === 'en') {
+    return res.json(en)
+  }
+
+  return res.send('invalid language')
 })
 
 module.exports = router;

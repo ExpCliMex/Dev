@@ -11,4 +11,9 @@ i18n
     interpolation: {
       escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
     },
+    backend: {
+      loadPath: (lngs, namespaces) => {
+        return 'http://localhost:4001/user/json/constants?lngs={{lng}}';
+      }
+    }
   });
