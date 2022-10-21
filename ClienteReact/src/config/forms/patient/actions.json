@@ -1,0 +1,10 @@
+{
+    "create": {
+        "name": "create",
+        "tabLabelId": "patient_create",
+        "formTitleId": "patient_mainForm",
+        "url": "",
+        "httpMethod": "",
+        "headers": []
+    }
+}

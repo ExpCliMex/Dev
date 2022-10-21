@@ -1,0 +1,101 @@
+[
+    {
+        "titleLabelId": "patient_generalInformation",
+        "fieldsIds": [
+            "patient_numExp",
+            "patient_curp",
+            "patient_folio",
+            "patient_fechaRegistro",
+            "patient_nombre",
+            "patient_apellidoPaterno",
+            "patient_apellidoMaterno",
+            "patient_FechaNacimiento",
+            "patient_sex",
+            "patient_religion",
+            "patient_estadoCivil",
+            "patient_sangre",
+            "patient_nacionalidad",
+            "patient_estado",
+            "patient_empleado",
+            "patient_escolaridad",
+            "termsCheck",
+            "consentimientoCheck"
+        ]
+    },
+    {
+        "titleLabelId": "patient_contactFields",
+        "fieldsIds": [
+            "contact_calle",
+            "patient_numExt",
+            "patient_numInt",
+            "patient_colonia",
+            "patient_municipio",
+            "patient_contact_estado",
+            "patient_pais",
+            "patient_cp",
+            "patient_telefono",
+            "patient_celular",
+            "patient_email"
+        ]
+    },
+    {
+        "titleLabelId": "patient_responsibleOfPatient",
+        "fieldsIds": [
+            "nombreResp",
+            "apellidoPaternoResp",
+            "apellidoMaternoResp",
+            "vinculo",
+            "calleResp",
+            "numExtResp",
+            "numIntResp",
+            "coloniaResp",
+            "localidadResp",
+            "municipioResp",
+            "estadoResp",
+            "cpResp",
+            "paisResp",
+            "telefonoResp",
+            "celularResp",
+            "emailResp"
+        ]
+    },
+    {
+        "titleLabelId": "patient_insuraceFields",
+        "fieldsIds": [
+            "cuentaSeguro",
+            "programaSeguroMedico",
+            "seguroMedico",
+            "otroSeguroMedico",
+            "fechaInicioSeguroMedico",
+            "fechaFinSeguroMedico",
+            "polizaSMed",
+            "folioSMed",
+            "titularSeguroMedico",
+            "tipoSMed"
+        ]
+    },
+    {
+        "titleLabelId": "patient_workInformationFields",
+        "fieldsIds": [
+            "areaInfLab",
+            "deptInfLab",
+            "nssInfLab",
+            "puestoInfLab",
+            "tipoTraInfLab",
+            "tipoContraInfLab"
+        ]
+    },
+    {
+        "titleLabelId": "patient_billInformation",
+        "fieldsIds": [
+            "rfcInfFact",
+            "nombreInfFact",
+            "emailInfFact",
+            "commentInfFact"
+        ]
+    },
+    {
+        "titleLabelId": "",
+        "fieldsIds": ["patient_createSubmitButton"]
+    }
+]

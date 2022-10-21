@@ -1,0 +1,714 @@
+{
+    "patient_numExp": {
+        "id": "patient_numExp",
+        "type": "text",
+        "properties": {
+            "create": {
+                "readonly": true
+            },
+            "update": {
+                "readonly": true
+            }
+        }
+    },
+    "patient_curp": {
+        "type": "text",
+        "id": "patient_curp",
+        "properties": {
+            "create": {
+                "placeholder": true,
+                "required": "error_required_patient_curp",
+                "validate": true,
+                "onChange": true,
+                "autocomplete": "off"
+            }
+        }
+    },
+    "patient_folio": {
+        "type": "text",
+        "id": "patient_folio",
+        "properties": {
+            "create": {
+                "placeholder": true,
+                "validate": true,
+                "autocomplete": "off"
+            }
+        }
+    },
+    "patient_fechaRegistro": {
+        "type": "date",
+        "id": "patient_fechaRegistro",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "readonly": true,
+                "disabled": true
+            }
+        }
+    },
+    "patient_nombre": {
+        "type": "text",
+        "id": "patient_nombre",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_apellidoPaterno": {
+        "type": "text",
+        "id": "patient_apellidoPaterno",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_apellidoMaterno": {
+        "type": "text",
+        "id": "patient_apellidoMaterno",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_FechaNacimiento": {
+        "type": "date",
+        "id": "patient_FechaNacimiento",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "readonly": false,
+                "required": true,
+                "validate": true,
+                "onChange": true
+            }
+        }
+    },
+    "patient_sex": {
+        "type": "select",
+        "id": "patient_sex",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "readonly": false,
+                "source": false,
+                "onChange": true,
+                "required": true,
+                "data": [
+                    { "label": "id_label_masculino", "value": "M" },
+                    { "label": "id_label_femenino", "value": "F" },
+                    { "label": "id_label_others", "value": "O" }
+                ]
+            }
+        }
+    },
+    "patient_religion": {
+        "type": "text",
+        "id": "patient_religion",
+        "properties": {
+            "create": {
+                "autocomplete": true,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_estadoCivil": {
+        "type": "select",
+        "id": "patient_estadoCivil",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "readonly": false,
+                "source": false,
+                "data": [
+                    { "label": "id_label_soltero", "value": "S" },
+                    { "label": "id_label_casado", "value": "C" },
+                    { "label": "id_label_others", "value": "O" }
+                ]
+            }
+        }
+    },
+    "patient_sangre": {
+        "type": "select",
+        "id": "patient_sangre",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "readonly": false,
+                "source": false,
+                "data": [
+                    { "label": "A+", "value": "A+" },
+                    { "label": "A-", "value": "A-" },
+                    { "label": "B+", "value": "B+" },
+                    { "label": "B-", "value": "B-" },
+                    { "label": "AB+", "value": "AB+" },
+                    { "label": "AB-", "value": "AB-" },
+                    { "label": "O+", "value": "O+" },
+                    { "label": "O-", "value": "O-" },
+                    { "label": "blood_type_unknown_label", "value": "U" }
+                ]
+            }
+        }
+    },
+    "patient_nacionalidad": {
+        "type": "text",
+        "id": "patient_nacionalidad",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_estado": {
+        "type": "text",
+        "id": "patient_estado",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_empleado": {
+        "type": "text",
+        "id": "patient_empleado",
+        "properties": {
+            "create": {
+                "autocomplete": true,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_escolaridad": {
+        "type": "text",
+        "id": "patient_escolaridad",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "termsCheck": {
+        "type": "checkbox",
+        "id": "termsCheck",
+        "properties": {
+            "create": {
+                "required": true,
+                "onChange": true
+            }
+        }
+    },
+    "consentimientoCheck": {
+        "type": "checkbox",
+        "id": "consentimientoCheck",
+        "properties": {
+            "create": {
+                "required": true
+            }
+        }
+    },
+    "contact_calle": {
+        "type": "text",
+        "id": "contact_calle",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_numExt": {
+        "type": "text",
+        "id": "patient_numExt",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_numInt": {
+        "type": "text",
+        "id": "patient_numInt",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_colonia": {
+        "type": "text",
+        "id": "patient_colonia",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_localidad": {
+        "type": "text",
+        "id": "patient_localidad",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_municipio": {
+        "type": "text",
+        "id": "patient_municipio",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_contact_estado": {
+        "type": "text",
+        "id": "patient_contact_estado",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_pais": {
+        "type": "text",
+        "id": "patient_pais",
+        "properties": {
+            "create": {
+                "autocomplete": true,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_cp": {
+        "type": "text",
+        "id": "patient_cp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": false
+            }
+        }
+    },
+    "patient_telefono": {
+        "type": "text",
+        "id": "patient_telefono",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_celular": {
+        "type": "text",
+        "id": "patient_celular",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_email": {
+        "type": "text",
+        "id": "patient_email",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "nombreResp": {
+        "type": "text",
+        "id": "nombreResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "apellidoPaternoResp": {
+        "type": "text",
+        "id": "apellidoPaternoResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "apellidoMaternoResp": {
+        "type": "text",
+        "id": "apellidoMaternoResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "vinculo": {
+        "type": "text",
+        "id": "vinculo",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "calleResp": {
+        "type": "text",
+        "id": "calleResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "numExtResp": {
+        "type": "text",
+        "id": "numExtResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "numIntResp": {
+        "type": "text",
+        "id": "numIntResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "coloniaResp": {
+        "type": "text",
+        "id": "coloniaResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "localidadResp": {
+        "type": "text",
+        "id": "localidadResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "municipioResp": {
+        "type": "text",
+        "id": "municipioResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "estadoResp": {
+        "type": "text",
+        "id": "estadoResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "cpResp": {
+        "type": "text",
+        "id": "cpResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": false
+            }
+        }
+    },
+    "paisResp": {
+        "type": "text",
+        "id": "paisResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "telefonoResp": {
+        "type": "text",
+        "id": "telefonoResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "celularResp": {
+        "type": "text",
+        "id": "celularResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "emailResp": {
+        "type": "text",
+        "id": "emailResp",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "cuentaSeguro": {
+        "type": "select",
+        "id": "cuentaSeguro",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "readonly": false,
+                "source": false,
+                "data": [
+                    { "label": "id_label_yes", "value": "Y" },
+                    { "label": "id_label_no", "value": "N" }
+                ]
+            }
+        }
+    },
+    "programaSeguroMedico": {
+        "type": "text",
+        "id": "programaSeguroMedico",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "seguroMedico": {
+        "type": "select",
+        "id": "seguroMedico",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "readonly": false,
+                "source": false,
+                "data": [
+                    { "label": "GNP", "value": "GNP" },
+                    { "label": "Qualitas", "value": "Qualitas" }
+                ]
+            }
+        }
+    },
+    "otroSeguroMedico": {
+        "type": "text",
+        "id": "otroSeguroMedico",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "fechaInicioSeguroMedico": {
+        "type": "date",
+        "id": "fechaInicioSeguroMedico",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "readonly": false
+            }
+        }
+    },
+    "fechaFinSeguroMedico": {
+        "type": "date",
+        "id": "fechaFinSeguroMedico",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "readonly": false
+            }
+        }
+    },
+    "polizaSMed": {
+        "type": "text",
+        "id": "polizaSMed",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "folioSMed": {
+        "type": "text",
+        "id": "folioSMed",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "titularSeguroMedico": {
+        "type": "text",
+        "id": "titularSeguroMedico",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "tipoSMed": {
+        "type": "text",
+        "id": "tipoSMed",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "areaInfLab": {
+        "type": "text",
+        "id": "areaInfLab",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "deptInfLab": {
+        "type": "text",
+        "id": "deptInfLab",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "nssInfLab": {
+        "type": "text",
+        "id": "nssInfLab",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "puestoInfLab": {
+        "type": "text",
+        "id": "puestoInfLab",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "tipoTraInfLab": {
+        "type": "text",
+        "id": "tipoTraInfLab",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "tipoContraInfLab": {
+        "type": "text",
+        "id": "tipoContraInfLab",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "rfcInfFact": {
+        "type": "text",
+        "id": "rfcInfFact",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "nombreInfFact": {
+        "type": "text",
+        "id": "nombreInfFact",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "emailInfFact": {
+        "type": "text",
+        "id": "emailInfFact",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "commentInfFact": {
+        "type": "text",
+        "id": "commentInfFact",
+        "properties": {
+            "create": {
+                "autocomplete": false,
+                "placeholder": true
+            }
+        }
+    },
+    "patient_createSubmitButton": {
+        "type": "submit",
+        "id": "patient_createSubmitButton",
+        "properties": {
+            "create": {}
+        }
+    }
+}
