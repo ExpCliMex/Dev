@@ -30,6 +30,7 @@ function Prueba() {
   return (
     <React.Fragment>
     <Navbar></Navbar>
+    <h1 className='hidetest'>Test element</h1>
     <Routes>
       <Route path="/calendar" element={<Calendar />} />
       <Route path="/paciente" element={<Paciente />} />
