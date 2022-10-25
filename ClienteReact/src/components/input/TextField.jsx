@@ -1,8 +1,9 @@
 import React from "react";
-import { FormControl } from "../form/FormControl";
-import { Label } from "./Label";
+import { FormControl } from "components/form/FormControl";
+import { Label } from "components/input/Label";
 import { useTranslation } from "react-i18next";
 import pp from "js/form/propertiesProcessing";
+import { ErrorMessage } from "@hookform/error-message";
 
 function TextField({
     id,
@@ -19,6 +20,8 @@ function TextField({
     //placeholder property
     if (properties.placeholder) {
         properties.placeholder = t(id + "_placeholder");
+    } else {
+        properties.placeholder = "";
     }
     //postprocessing properties
     propertiesCompleted = properties;
@@ -50,6 +53,13 @@ function TextField({
             <input
                 {...propertiesProcessed.propertiesCompleted}
                 {...form.register(id, propertiesProcessed.options)}
+            />
+            <ErrorMessage
+                name={id}
+                errors={form.formState.errors}
+                render={({ message }) => (
+                    <div className="error-message">{message}</div>
+                )}
             />
         </FormControl>
     );

@@ -3,6 +3,7 @@ import { FormControl } from "../form/FormControl";
 import { Label } from "./Label";
 import { useTranslation } from "react-i18next";
 import pp from "js/form/propertiesProcessing";
+import { ErrorMessage } from "@hookform/error-message";
 
 function CheckboxField({
     id,
@@ -38,6 +39,13 @@ function CheckboxField({
             <input
                 {...propertiesProcessed.propertiesCompleted}
                 {...form.register(id, propertiesProcessed.options)}
+            />
+            <ErrorMessage
+                name={id}
+                errors={form.formState.errors}
+                render={({ message }) => (
+                    <div className="error-message">{message}</div>
+                )}
             />
         </FormControl>
     );

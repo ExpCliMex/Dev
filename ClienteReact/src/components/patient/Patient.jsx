@@ -2,8 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/css/demo3/style.css";
 import "../styles/fonts/feather-font/css/iconfont.css";
-import axios from "axios";
-import { useForm, useFormContext } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import FormWrapper from "../form/FormWrapper";
 import FormSection from "../form/FormSection";
 import core from "js/core";
@@ -16,7 +15,7 @@ export default function Patient({
     let viewConfig = core.formLoader.getViewConfig(args.form);
     let viewFunctions = core.formLoader.getViewFunctions(args.form);
 
-    var form = useForm();
+    const form = useForm();
     // const onSubmit = (data) => {
     //     console.log(data);
     // };
@@ -89,6 +88,9 @@ export default function Patient({
                                                     (section) => {
                                                         return (
                                                             <FormSection
+                                                                key={
+                                                                    section.titleLabelId
+                                                                }
                                                                 section={
                                                                     section
                                                                 }

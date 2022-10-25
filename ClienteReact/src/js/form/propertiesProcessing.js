@@ -1,3 +1,7 @@
+import i18n from "js/i18n";
+
+const t = i18n.t;
+
 function processPropertiesForTextField(
     id,
     prePropertiesCompleted,
@@ -14,7 +18,7 @@ function processPropertiesForTextField(
     }
     //required
     if (prePropertiesCompleted.required) {
-        options.required = prePropertiesCompleted.required;
+        options.required = t(prePropertiesCompleted.required);
         delete propertiesCompleted.required;
     }
     //maxLength

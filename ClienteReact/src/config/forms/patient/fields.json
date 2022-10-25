@@ -4,10 +4,10 @@
         "type": "text",
         "properties": {
             "create": {
-                "readonly": true
+                "readOnly": true
             },
             "update": {
-                "readonly": true
+                "readOnly": true
             }
         }
     },
@@ -20,7 +20,7 @@
                 "required": "error_required_patient_curp",
                 "validate": true,
                 "onChange": true,
-                "autocomplete": "off"
+                "autoComplete": "off"
             }
         }
     },
@@ -31,7 +31,7 @@
             "create": {
                 "placeholder": true,
                 "validate": true,
-                "autocomplete": "off"
+                "autoComplete": "off"
             }
         }
     },
@@ -40,8 +40,8 @@
         "id": "patient_fechaRegistro",
         "properties": {
             "create": {
-                "autocomplete": false,
-                "readonly": true,
+                "autoComplete": "off",
+                "readOnly": true,
                 "disabled": true
             }
         }
@@ -51,7 +51,7 @@
         "id": "patient_nombre",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -61,7 +61,7 @@
         "id": "patient_apellidoPaterno",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -71,7 +71,7 @@
         "id": "patient_apellidoMaterno",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -81,8 +81,8 @@
         "id": "patient_FechaNacimiento",
         "properties": {
             "create": {
-                "autocomplete": false,
-                "readonly": false,
+                "autoComplete": "off",
+                "readOnly": false,
                 "required": true,
                 "validate": true,
                 "onChange": true
@@ -94,8 +94,8 @@
         "id": "patient_sex",
         "properties": {
             "create": {
-                "autocomplete": false,
-                "readonly": false,
+                "autoComplete": "off",
+                "readOnly": false,
                 "source": false,
                 "onChange": true,
                 "required": true,
@@ -112,7 +112,7 @@
         "id": "patient_religion",
         "properties": {
             "create": {
-                "autocomplete": true,
+                "autoComplete": "on",
                 "placeholder": true
             }
         }
@@ -122,8 +122,8 @@
         "id": "patient_estadoCivil",
         "properties": {
             "create": {
-                "autocomplete": false,
-                "readonly": false,
+                "autoComplete": "off",
+                "readOnly": false,
                 "source": false,
                 "data": [
                     { "label": "id_label_soltero", "value": "S" },
@@ -138,8 +138,8 @@
         "id": "patient_sangre",
         "properties": {
             "create": {
-                "autocomplete": false,
-                "readonly": false,
+                "autoComplete": "off",
+                "readOnly": false,
                 "source": false,
                 "data": [
                     { "label": "A+", "value": "A+" },
@@ -160,7 +160,7 @@
         "id": "patient_nacionalidad",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -170,7 +170,7 @@
         "id": "patient_estado",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -180,7 +180,7 @@
         "id": "patient_empleado",
         "properties": {
             "create": {
-                "autocomplete": true,
+                "autoComplete": "on",
                 "placeholder": true
             }
         }
@@ -190,7 +190,7 @@
         "id": "patient_escolaridad",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -219,7 +219,7 @@
         "id": "contact_calle",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -229,7 +229,7 @@
         "id": "patient_numExt",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -239,7 +239,7 @@
         "id": "patient_numInt",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -249,7 +249,7 @@
         "id": "patient_colonia",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -259,7 +259,7 @@
         "id": "patient_localidad",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -269,7 +269,7 @@
         "id": "patient_municipio",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -279,7 +279,7 @@
         "id": "patient_contact_estado",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -289,7 +289,7 @@
         "id": "patient_pais",
         "properties": {
             "create": {
-                "autocomplete": true,
+                "autoComplete": "on",
                 "placeholder": true
             }
         }
@@ -299,7 +299,7 @@
         "id": "patient_cp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": false
             }
         }
@@ -309,7 +309,7 @@
         "id": "patient_telefono",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -319,7 +319,7 @@
         "id": "patient_celular",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -329,7 +329,7 @@
         "id": "patient_email",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -339,7 +339,7 @@
         "id": "nombreResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -349,7 +349,7 @@
         "id": "apellidoPaternoResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -359,7 +359,7 @@
         "id": "apellidoMaternoResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -369,7 +369,7 @@
         "id": "vinculo",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -379,7 +379,7 @@
         "id": "calleResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -389,7 +389,7 @@
         "id": "numExtResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -399,7 +399,7 @@
         "id": "numIntResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -409,7 +409,7 @@
         "id": "coloniaResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -419,7 +419,7 @@
         "id": "localidadResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -429,7 +429,7 @@
         "id": "municipioResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -439,7 +439,7 @@
         "id": "estadoResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -449,7 +449,7 @@
         "id": "cpResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": false
             }
         }
@@ -459,7 +459,7 @@
         "id": "paisResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -469,7 +469,7 @@
         "id": "telefonoResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -479,7 +479,7 @@
         "id": "celularResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -489,7 +489,7 @@
         "id": "emailResp",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -499,8 +499,8 @@
         "id": "cuentaSeguro",
         "properties": {
             "create": {
-                "autocomplete": false,
-                "readonly": false,
+                "autoComplete": "off",
+                "readOnly": false,
                 "source": false,
                 "data": [
                     { "label": "id_label_yes", "value": "Y" },
@@ -514,7 +514,7 @@
         "id": "programaSeguroMedico",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -524,8 +524,8 @@
         "id": "seguroMedico",
         "properties": {
             "create": {
-                "autocomplete": false,
-                "readonly": false,
+                "autoComplete": "off",
+                "readOnly": false,
                 "source": false,
                 "data": [
                     { "label": "GNP", "value": "GNP" },
@@ -539,7 +539,7 @@
         "id": "otroSeguroMedico",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -549,8 +549,8 @@
         "id": "fechaInicioSeguroMedico",
         "properties": {
             "create": {
-                "autocomplete": false,
-                "readonly": false
+                "autoComplete": "off",
+                "readOnly": false
             }
         }
     },
@@ -559,8 +559,8 @@
         "id": "fechaFinSeguroMedico",
         "properties": {
             "create": {
-                "autocomplete": false,
-                "readonly": false
+                "autoComplete": "off",
+                "readOnly": false
             }
         }
     },
@@ -569,7 +569,7 @@
         "id": "polizaSMed",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -579,7 +579,7 @@
         "id": "folioSMed",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -589,7 +589,7 @@
         "id": "titularSeguroMedico",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -599,7 +599,7 @@
         "id": "tipoSMed",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -609,7 +609,7 @@
         "id": "areaInfLab",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -619,7 +619,7 @@
         "id": "deptInfLab",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -629,7 +629,7 @@
         "id": "nssInfLab",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -639,7 +639,7 @@
         "id": "puestoInfLab",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -649,7 +649,7 @@
         "id": "tipoTraInfLab",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -659,7 +659,7 @@
         "id": "tipoContraInfLab",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -669,7 +669,7 @@
         "id": "rfcInfFact",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -679,7 +679,7 @@
         "id": "nombreInfFact",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -689,7 +689,7 @@
         "id": "emailInfFact",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }
@@ -699,7 +699,7 @@
         "id": "commentInfFact",
         "properties": {
             "create": {
-                "autocomplete": false,
+                "autoComplete": "off",
                 "placeholder": true
             }
         }

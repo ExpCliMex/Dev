@@ -3,6 +3,7 @@ import { FormControl } from "../form/FormControl";
 import { Label } from "./Label";
 import { useTranslation } from "react-i18next";
 import pp from "js/form/propertiesProcessing";
+import { ErrorMessage } from "@hookform/error-message";
 
 function SelectField({
     id,
@@ -30,6 +31,8 @@ function SelectField({
     } else {
         throw new Error("No data provided for SELECT field");
     }
+    // source is not a valid property in html
+    properties.source = null;
     //postprocessing properties
     propertiesCompleted = properties;
     propertiesCompleted["type"] = type;
@@ -56,6 +59,13 @@ function SelectField({
             >
                 {children}
             </select>
+            <ErrorMessage
+                name={id}
+                errors={form.formState.errors}
+                render={({ message }) => (
+                    <div className="error-message">{message}</div>
+                )}
+            />
         </FormControl>
     );
 }

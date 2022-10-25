@@ -3,6 +3,7 @@ import { FormControl } from "../form/FormControl";
 import { Label } from "./Label";
 import { useTranslation } from "react-i18next";
 import pp from "js/form/propertiesProcessing";
+import { ErrorMessage } from "@hookform/error-message";
 
 function DateField({
     id,
@@ -19,7 +20,10 @@ function DateField({
     //placeholder property
     if (properties.placeholder) {
         properties.placeholder = t(id + "_placeholder");
+    } else {
+        properties.placeholder = "";
     }
+
     //postprocessing properties
     propertiesCompleted = properties;
     propertiesCompleted["type"] = type;
@@ -42,10 +46,16 @@ function DateField({
     return (
         <FormControl className={formControlClassName}>
             <Label htmlFor={id} />
-            <br />
             <input
                 {...propertiesProcessed.propertiesCompleted}
                 {...form.register(id, propertiesProcessed.options)}
+            />
+            <ErrorMessage
+                name={id}
+                errors={form.formState.errors}
+                render={({ message }) => (
+                    <div className="error-message">{message}</div>
+                )}
             />
         </FormControl>
     );

@@ -5,8 +5,8 @@ import FormRenderer from "components/form/FormRenderer";
 
 function Card({ children }) {
     return (
-        <div class="card">
-            <div class="card-body">
+        <div className="card">
+            <div className="card-body">
                 <div className="row">{children}</div>
             </div>
         </div>
