@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/fonts/feather-font/css/iconfont.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "../styles/css/demo1/style.css";
 import "../styles/vendors/core/core.css";
 import "../styles/fonts/feather-font/css/iconfont.css";
@@ -40,17 +40,17 @@ class Sidebar extends React.Component {
                         <li className="nav-item">
                             <a  className="nav-link">
                                 <i className="link-icon" data-feather="box"></i>
-                                <span className="link-title"><NavLink className="nav-item nav-link" to="/pacienteTest">
+                                <span className="link-title"><Link className="nav-item nav-link" to="/pacienteTest">
                                 test
-                      </NavLink></span>
+                      </Link></span>
                             </a>
                         </li>
                         <li className="nav-item">
                             <a  className="nav-link">
                                 <i className="link-icon" data-feather="box"></i>
-                                <span className="link-title"><NavLink className="nav-item nav-link" to="/modal">
+                                <span className="link-title"><Link className="nav-item nav-link" to="/modal">
                                 Modals
-                      </NavLink></span>
+                      </Link></span>
                             </a>
                         </li>
                         <li className="nav-item">

@@ -7,7 +7,6 @@ const onSubmit = data => console.log(data);
 console.log(watch("example")); // watch input value by passing the name of it
         return (
           <div className="page-content">
-
 				<div className="row chat-wrapper">
 					<div className="col-md-12">
             <div className="card">
