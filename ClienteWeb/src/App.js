@@ -8,6 +8,8 @@ import {
 import Calendar from './components/Calendar/calendar';
 import './App.css';
 import Navbar from './components/navbar/navbar';
+import Sidebar from './components/Sidebar/sidebar';
+import Modal from './components/Test/modal';
 import ExpClinico from './components/expClinico/expClinico';
 import Paciente from './components/pacientes/paciente';
 import HistoriaClinica from './components/historiasClinicas/historiaClinica';
@@ -18,6 +20,17 @@ import { useLocation } from 'react-router-dom';
 import Registro from './components/registro/registro';
 import  './i18n';
 import { useTranslation } from 'react-i18next';
+import {Helmet} from "react-helmet";
+import 'jquery/dist/jquery.min.js';
+import $ from "jquery";
+import Popper from 'popper.js';
+import "@popperjs/core";
+import { StateMachineProvider, createStore } from "little-state-machine";
+import Step1 from "./components/wizardTest/step1";
+import Step2 from "./components/wizardTest/step2";
+import Result from "./components/wizardTest/result";
+
+createStore({});
 
 function Prueba() {
   let location = useLocation();
@@ -29,15 +42,33 @@ function Prueba() {
   }
   return (
     <React.Fragment>
+    <Sidebar></Sidebar>
+    <div className='page-wrapper'>
     <Navbar></Navbar>
-    <h1 className='hidetest'>Test element</h1>
     <Routes>
       <Route path="/calendar" element={<Calendar />} />
       <Route path="/paciente" element={<Paciente />} />
       <Route path="/pacienteTest" element={<PacienteTest />} />
       <Route path="/historiaClinica" element={<HistoriaClinica />} />
+      <Route path="/modal" element={<Modal />} />
     </Routes>
     <Footer></Footer>
+    </div>
+    <Helmet>
+    <script  isHydrating={true} type="text/javascript" src="./assets/vendors/core/core.js" />
+    <script  isHydrating={true} type="text/javascript" src="./assets/js/template.js" />
+    <script  isHydrating={true} type="text/javascript" src="./assets/js/chat.js" />
+    <script  isHydrating={true} type="text/javascript" src="./assets/js/dashboard-light.js" />
+    <script  isHydrating={true} type="text/javascript" src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin />
+    <script  isHydrating={true} type="text/javascript" src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" crossorigin />
+    <script  isHydrating={true} type="text/javascript" src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin />
+    <script  isHydrating={true} type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js" />
+    <script  isHydrating={true} type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js" />
+    <script  isHydrating={true} type="text/javascript" src="js/jquery-steps.js" />
+
+
+    
+</Helmet>
     </React.Fragment>
   );
 }
@@ -47,11 +78,9 @@ function App () {
   const { t } = useTranslation();
     return (
       <Suspense fallback="...is loading">
-      <main className='container'>
         <BrowserRouter>
         <Prueba></Prueba>
         </BrowserRouter>
-      </main>
         </Suspense>
     );
 }

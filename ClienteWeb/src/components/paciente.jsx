@@ -1,7 +1,7 @@
 import React, { Component, useState  } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/css/demo3/style.css";
 import "./styles/fonts/feather-font/css/iconfont.css";
+import DatePicker from 'react-date-picker';
 
 /*
 import "./styles/vendors/jquery-validation/jquery.validate.min.js";
@@ -32,8 +32,10 @@ class Paciente extends Component {
 
   state = {};
   
+  
   render() {
     return (
+      
       <div className="tabsP">
         <ul className="nav nav-tabs nav-tabs-line" id="lineTab" role="tablist">
           <li className="nav-item">
@@ -50,7 +52,7 @@ class Paciente extends Component {
             </a>
           </li>
         </ul>
-
+        
         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-line-tab">
         <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
           <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autocomplete="off" />
@@ -61,7 +63,7 @@ class Paciente extends Component {
   </div>
  
 <form onSubmit={this.handleSubmit}>
-  
+
           <div className="card card-body">
             <div className="page-wrapper">
               <div className="page-content">
@@ -72,7 +74,6 @@ class Paciente extends Component {
 								<h4 className="card-title">Alta de paciente</h4>
                 <div id="wizardVertical">
                   <h2>Información general del paciente</h2>
-                  
                   <section>
                     <div className="row">
 					<div className="col-md-12 grid-margin">

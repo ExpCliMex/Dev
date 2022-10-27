@@ -9,7 +9,7 @@ class Calendar extends React.Component {
     state = {  } 
     render() { 
         return (
-            
+          <div class="page-content">
             <div className='calendar'>
         <FullCalendar
         plugins={[ dayGridPlugin ]}
@@ -31,6 +31,7 @@ class Calendar extends React.Component {
               }
         ]}
       />
+      </div>
       </div>
         );
     }
