@@ -1,0 +1,18 @@
+{
+  "Welcome": {
+    "text": "Welcome to this React Internationalization App",
+    "description": "This app aims to help bridge the gap and help you easily internationalize your web page easily"
+  },
+  "interpolation_pluralization": {
+    "text_one": "There is only one Article on this",
+    "text_other": "There are {{count}} Articles on this"
+  },
+  "login_username": "Username",
+  "login_email": "Email",
+  "login_password": "Password",
+  "login_authCheck": "Remember me",
+  "login_submit": "Log In",
+  "signup_username": "Username",
+  "signup_email": "Email",
+  "signup_password": "Password"
+}
