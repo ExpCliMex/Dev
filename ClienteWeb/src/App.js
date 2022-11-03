@@ -29,6 +29,8 @@ import { StateMachineProvider, createStore } from "little-state-machine";
 import Step1 from "./components/wizardTest/step1";
 import Step2 from "./components/wizardTest/step2";
 import Result from "./components/wizardTest/result";
+import Error404 from "./components/error/error404"
+import Error500 from "./components/error/error500"
 
 createStore({});
 
@@ -39,6 +41,12 @@ function Prueba() {
   }
   if(location.pathname == "/registro"){
     return <Registro></Registro>
+  }
+  if(location.pathname == "/error404"){
+    return <Error404></Error404>
+  }
+  if(location.pathname == "/error500"){
+    return <Error500></Error500>
   }
   return (
     <React.Fragment>
@@ -59,11 +67,6 @@ function Prueba() {
     <script  isHydrating={true} type="text/javascript" src="./assets/js/template.js" />
     <script  isHydrating={true} type="text/javascript" src="./assets/js/chat.js" />
     <script  isHydrating={true} type="text/javascript" src="./assets/js/dashboard-light.js" />
-    <script  isHydrating={true} type="text/javascript" src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin />
-    <script  isHydrating={true} type="text/javascript" src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" crossorigin />
-    <script  isHydrating={true} type="text/javascript" src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin />
-    <script  isHydrating={true} type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js" />
-    <script  isHydrating={true} type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js" />
     <script  isHydrating={true} type="text/javascript" src="js/jquery-steps.js" />
 
 
