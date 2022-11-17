@@ -130,7 +130,7 @@ function processPropertiesForDateField(
     }
     //required
     if (prePropertiesCompleted.required) {
-        options.required = prePropertiesCompleted.required;
+        options.required = t(prePropertiesCompleted.required);
         delete propertiesCompleted.required;
     }
     //maxLength
@@ -232,7 +232,7 @@ function processPropertiesForCheckBoxField(
     viewFunctions, //es un objeto { validate_id : function(value, form)....}
     form
 ) {
-    let propertiesCompleted = prePropertiesCompleted;
+    let propertiesCompleted = {...prePropertiesCompleted};
     let options = {};
     //process, for doc see: https://react-hook-form.com/api/useform/register
     //ref property
@@ -344,7 +344,7 @@ function processPropertiesForSelectField(
     viewFunctions, //es un objeto { validate_id : function(value, form)....}
     form
 ) {
-    let propertiesCompleted = prePropertiesCompleted;
+    let propertiesCompleted = {...prePropertiesCompleted};
     let options = {};
     //process, for doc see: https://react-hook-form.com/api/useform/register
     //ref property

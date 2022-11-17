@@ -36,11 +36,23 @@ function Main() {
                     }
                 />
                 <Route
+                    path="/paciente/actualizar/:patientId"
+                    element={
+                        <Patient args={{ form: "patient", action: "update" }} />
+                    }
+                />
+                <Route
                     path="/pacientetest"
                     element={
                         <PatientTest
                             args={{ form: "patient", action: "create" }}
                         />
+                    }
+                />
+                <Route
+                    path="/paciente/eliminar/:patientId"
+                    element={
+                        <Patient args={{ form: "patient", action: "delete" }} />
                     }
                 />
                 <Route path="/historiaClinica" element={<HistoriaClinica />} />

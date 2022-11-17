@@ -4,6 +4,7 @@ import { Label } from "components/input/Label";
 import { useTranslation } from "react-i18next";
 import pp from "js/form/propertiesProcessing";
 import { ErrorMessage } from "@hookform/error-message";
+import { ErrorTextField } from "components/errors/ErrorTextField";
 
 function TextField({
     id,
@@ -24,7 +25,7 @@ function TextField({
         properties.placeholder = "";
     }
     //postprocessing properties
-    propertiesCompleted = properties;
+    propertiesCompleted = { ...properties };
     propertiesCompleted["type"] = type;
     if (properties.value || properties.readonly) {
         propertiesCompleted["value"] = properties.value || "";
@@ -32,6 +33,9 @@ function TextField({
     //Input class processing
     if (!propertiesCompleted.className) {
         propertiesCompleted.className = "form-control";
+    }
+    if (form.formState.errors[id]) {
+        propertiesCompleted.className = `${propertiesCompleted.className} error-input-text`;
     }
     //Class processing
     formControlClassName =
@@ -46,7 +50,6 @@ function TextField({
         viewFunctions,
         form
     );
-    //console.log({ propertiesProcessed, id });
     return (
         <FormControl className={formControlClassName}>
             <Label htmlFor={id} />
@@ -57,9 +60,7 @@ function TextField({
             <ErrorMessage
                 name={id}
                 errors={form.formState.errors}
-                render={({ message }) => (
-                    <div className="error-message">{message}</div>
-                )}
+                render={ErrorTextField}
             />
         </FormControl>
     );

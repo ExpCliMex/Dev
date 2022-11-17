@@ -3,8 +3,40 @@
         "name": "create",
         "tabLabelId": "patient_create",
         "formTitleId": "patient_mainForm",
-        "url": "",
-        "httpMethod": "",
-        "headers": []
+        "url": "/patients/create",
+        "httpMethod": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    },
+    "read": {
+         "name": "read",
+        "tabLabelId": "patient_read",
+        "formTitleId": "patient_mainForm",
+        "url": "/patients/read",
+        "httpMethod": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    },
+    "update": {
+        "name": "update",
+        "tabLabelId": "patient_update",
+        "formTitleId": "patient_mainForm",
+        "url": "/patients/update",
+        "httpMethod": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    },
+    "delete": {
+        "name": "delete",
+        "tabLabelId": "patient_delete",
+        "formTitleId": "patient_mainForm",
+        "url": "/patients/delete",
+        "httpMethod": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        }
     }
 }

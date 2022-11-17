@@ -43,3 +43,7 @@
     font-size: .875em;
     color: #dc3545;
 }
+
+.error-input-text {
+  border-color: #dc3545 !important;
+}

@@ -8,6 +8,9 @@
             },
             "update": {
                 "readOnly": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -21,6 +24,16 @@
                 "validate": true,
                 "onChange": true,
                 "autoComplete": "off"
+            },
+            "update": {
+                "placeholder": true,
+                "required": "error_required_patient_curp",
+                "validate": true,
+                "onChange": true,
+                "autoComplete": "off"
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -32,6 +45,14 @@
                 "placeholder": true,
                 "validate": true,
                 "autoComplete": "off"
+            },
+            "update": {
+                "placeholder": true,
+                "validate": true,
+                "autoComplete": "off"
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -43,6 +64,14 @@
                 "autoComplete": "off",
                 "readOnly": true,
                 "disabled": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "readOnly": true,
+                "disabled": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -53,6 +82,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -63,6 +99,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -73,6 +116,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -83,9 +133,19 @@
             "create": {
                 "autoComplete": "off",
                 "readOnly": false,
+                "required": "error_required_patient_FechaNacimiento",
+                "validate": true,
+                "onChange": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "readOnly": false,
                 "required": true,
                 "validate": true,
                 "onChange": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -100,9 +160,29 @@
                 "onChange": true,
                 "required": true,
                 "data": [
-                    { "label": "id_label_masculino", "value": "M" },
-                    { "label": "id_label_femenino", "value": "F" },
-                    { "label": "id_label_others", "value": "O" }
+                    { "label": "id_label_masculino", "value": "male" },
+                    { "label": "id_label_femenino", "value": "female" },
+                    { "label": "id_label_others", "value": "other" }
+                ]
+            },
+            "update": {
+                "autoComplete": "off",
+                "readOnly": false,
+                "source": false,
+                "onChange": true,
+                "required": true,
+                "data": [
+                    { "label": "id_label_masculino", "value": "male" },
+                    { "label": "id_label_femenino", "value": "female" },
+                    { "label": "id_label_others", "value": "other" }
+                ]
+            },
+            "delete": {
+                "disabled": true,
+                "data": [
+                    { "label": "id_label_masculino", "value": "male" },
+                    { "label": "id_label_femenino", "value": "female" },
+                    { "label": "id_label_others", "value": "other" }
                 ]
             }
         }
@@ -114,6 +194,13 @@
             "create": {
                 "autoComplete": "on",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "on",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -125,6 +212,24 @@
                 "autoComplete": "off",
                 "readOnly": false,
                 "source": false,
+                "data": [
+                    { "label": "id_label_soltero", "value": "S" },
+                    { "label": "id_label_casado", "value": "C" },
+                    { "label": "id_label_others", "value": "O" }
+                ]
+            },
+            "update": {
+                "autoComplete": "off",
+                "readOnly": false,
+                "source": false,
+                "data": [
+                    { "label": "id_label_soltero", "value": "S" },
+                    { "label": "id_label_casado", "value": "C" },
+                    { "label": "id_label_others", "value": "O" }
+                ]
+            },
+            "delete": {
+                "disabled": true,
                 "data": [
                     { "label": "id_label_soltero", "value": "S" },
                     { "label": "id_label_casado", "value": "C" },
@@ -152,6 +257,36 @@
                     { "label": "O-", "value": "O-" },
                     { "label": "blood_type_unknown_label", "value": "U" }
                 ]
+            },
+            "update": {
+                "autoComplete": "off",
+                "readOnly": false,
+                "source": false,
+                "data": [
+                    { "label": "A+", "value": "A+" },
+                    { "label": "A-", "value": "A-" },
+                    { "label": "B+", "value": "B+" },
+                    { "label": "B-", "value": "B-" },
+                    { "label": "AB+", "value": "AB+" },
+                    { "label": "AB-", "value": "AB-" },
+                    { "label": "O+", "value": "O+" },
+                    { "label": "O-", "value": "O-" },
+                    { "label": "blood_type_unknown_label", "value": "U" }
+                ]
+            },
+            "delete": {
+                "disabled": true,
+                "data": [
+                    { "label": "A+", "value": "A+" },
+                    { "label": "A-", "value": "A-" },
+                    { "label": "B+", "value": "B+" },
+                    { "label": "B-", "value": "B-" },
+                    { "label": "AB+", "value": "AB+" },
+                    { "label": "AB-", "value": "AB-" },
+                    { "label": "O+", "value": "O+" },
+                    { "label": "O-", "value": "O-" },
+                    { "label": "blood_type_unknown_label", "value": "U" }
+                ]
             }
         }
     },
@@ -162,6 +297,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -172,6 +314,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -182,6 +331,13 @@
             "create": {
                 "autoComplete": "on",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "on",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -192,6 +348,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -202,6 +365,13 @@
             "create": {
                 "required": true,
                 "onChange": true
+            },
+            "update": {
+                "required": true,
+                "onChange": true
+            },
+            "delete": {
+                "disabled": true
             }
         }
     },
@@ -211,6 +381,12 @@
         "properties": {
             "create": {
                 "required": true
+            },
+            "update": {
+                "required": true
+            },
+            "delete": {
+                "disabled": true
             }
         }
     },
@@ -221,6 +397,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -231,6 +414,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -241,6 +431,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -251,6 +448,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -261,6 +465,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -271,6 +482,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -281,6 +499,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -291,6 +516,13 @@
             "create": {
                 "autoComplete": "on",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "on",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -301,6 +533,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": false
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": false
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -311,6 +550,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -321,6 +567,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -331,6 +584,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -341,6 +601,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -351,6 +618,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -361,6 +635,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -371,6 +652,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -381,6 +669,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -391,6 +686,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -401,6 +703,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -411,6 +720,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -421,6 +737,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -431,6 +754,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -441,6 +771,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -451,6 +788,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": false
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": false
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -461,6 +805,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -471,6 +822,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -481,6 +839,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -491,6 +856,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -506,6 +878,22 @@
                     { "label": "id_label_yes", "value": "Y" },
                     { "label": "id_label_no", "value": "N" }
                 ]
+            },
+            "update": {
+                "autoComplete": "off",
+                "readOnly": false,
+                "source": false,
+                "data": [
+                    { "label": "id_label_yes", "value": "Y" },
+                    { "label": "id_label_no", "value": "N" }
+                ]
+            },
+            "delete": {
+                "disabled": true,
+                "data": [
+                    { "label": "id_label_yes", "value": "Y" },
+                    { "label": "id_label_no", "value": "N" }
+                ]
             }
         }
     },
@@ -516,6 +904,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -531,6 +926,22 @@
                     { "label": "GNP", "value": "GNP" },
                     { "label": "Qualitas", "value": "Qualitas" }
                 ]
+            },
+            "update": {
+                "autoComplete": "off",
+                "readOnly": false,
+                "source": false,
+                "data": [
+                    { "label": "GNP", "value": "GNP" },
+                    { "label": "Qualitas", "value": "Qualitas" }
+                ]
+            },
+            "delete": {
+                "disabled": true,
+                "data": [
+                    { "label": "GNP", "value": "GNP" },
+                    { "label": "Qualitas", "value": "Qualitas" }
+                ]
             }
         }
     },
@@ -541,6 +952,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -551,6 +969,13 @@
             "create": {
                 "autoComplete": "off",
                 "readOnly": false
+            },
+            "update": {
+                "autoComplete": "off",
+                "readOnly": false
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -561,6 +986,13 @@
             "create": {
                 "autoComplete": "off",
                 "readOnly": false
+            },
+            "update": {
+                "autoComplete": "off",
+                "readOnly": false
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -571,6 +1003,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -581,6 +1020,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -591,6 +1037,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -601,6 +1054,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -611,6 +1071,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -621,6 +1088,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -631,6 +1105,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -641,6 +1122,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -651,6 +1139,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -661,6 +1156,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -671,6 +1173,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -681,6 +1190,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -691,6 +1207,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -701,6 +1224,13 @@
             "create": {
                 "autoComplete": "off",
                 "placeholder": true
+            },
+            "update": {
+                "autoComplete": "off",
+                "placeholder": true
+            },
+            "delete": {
+                "readOnly": true
             }
         }
     },
@@ -708,7 +1238,11 @@
         "type": "submit",
         "id": "patient_createSubmitButton",
         "properties": {
-            "create": {}
+            "create": {},
+            "update": {},
+            "delete": {
+                "readOnly": true
+            }
         }
     }
 }

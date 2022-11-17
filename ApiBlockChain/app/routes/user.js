@@ -260,11 +260,175 @@ router.post('/constants-options/readAll', async (req, res) => {
   res.json(responseBlockchain);
 })
 
+function getPatientFhirData(data) {
+  return {
+    "resourceType": "Patient",
+    "id": "6969841",
+    "language": "spanish",
+    "extension": [
+      {
+        "url": "https://www.hl7.org/fhir/v3/EducationLevel/cs.html",
+        "valueString": "High School or secondary school degree complete ",
+        "valueCode": data.patient_escolaridad
+      },
+      {
+        // No se encuentra en el formulario
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+        "valueAddress": {
+          "city": "Rio Verde",
+          "state": "San Luis Potosi"
+        }
+      },
+      {
+        "url": "https://hl7.org/fhir/2018May/occupationaldata.html",
+        "valueString": data.puestoInfLab
+      },
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-religion",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.3.215.12.11"
+            }
+          ],
+          "text": data.patient_religion
+        }
+      },
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-nationality",
+        "valueCodeableConcept": {
+          "text": data.patient_nacionalidad
+        }
+      }
+    ],
+    "identifier": [
+      {
+        "type": {
+          "text": "CURP"
+        },
+        "system": "urn:oid:2.16.840.1.113883.4.629",
+        "value": data.patient_curp
+      }
+    ],
+    "active": true,
+    "name": [
+      {
+        "use": "official",
+        "text": `${data.patient_name} ${data.patient_apellidoPaterno} ${data.patient_apellidoMaterno}`,
+        "family": data.patient_apellidoPaterno,
+        "given": [
+          data.patient_name
+        ]
+      }
+    ],
+    // Cambior los codigos de data.patient_sex
+    "gender": "male",
+    "birthDate": data.patient_FechaNacimiento,
+    "address": [
+      {
+        "use": "home",
+        "line": [
+          `${data.patient_calle} ${data.patient_numExt} ${data.patient_numInt}, colonia ${data.patient_colonia}`
+          //"calle niños héroes #18, colonia Bungambilias"
+        ],
+        "postalCode": data.patient_cp,
+        "city": data.patient_localidad,
+        "state": data.patient_contact_estado
+      }
+    ],
+    "maritalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+          "code": "W", // TODO Revisar los codigos
+          "display": data.patient_estadoCivil
+        }
+      ]
+    },
+    // TODO Verificar como guardar el generalPractitioner
+    "generalPractitioner": [
+      {
+        "reference": "Practitioner/6969821",
+        "display": "Juan Perez"
+      }
+    ],
+    "telecom": [
+      {
+        "system": "phone",
+        "value": data.patient_celular,
+        "use": "mobile"
+      },
+      {
+        "system": "phone",
+        "use": "home",
+        "value": data.patient_telefono
+      },
+      {
+        "system": "email",
+        "use": "work",
+        "value":data.patient_email
+      }
+    ],
+    "contact": [
+      {
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                "code": data.vinculo
+              }
+            ]
+          }
+        ],
+        "name": {
+          "family": data.apellidoPaternoResp,
+          "given": [
+            data.nombreResp
+          ]
+        },
+        "address": {
+          "use": "home",
+          "line": [
+            `${data.calleResp} ${data.numExtResp} ${data.numIntResp}, colonia ${data.coloniaResp}`
+          ],
+          "postalCode": data.cpResp,
+          "city": data.municipioResp,
+          "state": data.estadoResp
+        },
+        "telecom": [
+          {
+            "system": "phone",
+            "value": data.celularResp,
+            "use": "mobile"
+          },
+          {
+            "system": "phone",
+            "use": "home",
+            "value": data.telefonoResp
+          },
+          {
+            "system": "email",
+            "use": "work",
+            "value": data.emailResp
+          }
+        ]
+      },
+      {
+        "organization": {
+          "display": "ITSPR"
+        }
+      }
+    ]
+  }
+}
+
 router.post('/patient', async (req, res) => {
    const tranConfig = req.body.transConfig;
   const tranConfigValid = util.validateTransactionConfig(tranConfig, true);
   if (!tranConfigValid)
     return res.json([[], tranConfigValid])
+  const patientData = getPatientFhirData(req.body.data)
   const transArgs = JSON.stringify(req.body.data)
   // TODO: Cambiar este invokeTransactionAdmin por invokeTransaction
   const responseBlockchain = await invokeTransactionAdmin(

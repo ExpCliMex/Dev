@@ -42,6 +42,7 @@ console.log("Initializing Web Client Server")
  */
 indexRouter = require('./routes/index')
 userRouter = require('./routes/users')
+patientRouter = require('./routes/patient')
 //Test routers
 testRouter = require('./routes/testRoutes')
 //subirArchivo = require('./routes/subirArchivo')
@@ -59,6 +60,7 @@ app.use(express.json());
  */
 app.use('/', indexRouter);
 app.use('/users', userRouter);
+app.use('/patients', patientRouter);
 //app.use('/subirarchivo', subirArchivo);
 // Test routes, only for NONPRODUCTION executions
 if(node_env !== 'PRODUCTION'){
@@ -69,4 +71,4 @@ if(node_env !== 'PRODUCTION'){
  */
 app.listen(port, host, () => {
     console.log("Server initialized in port:" + port)
-}) 
+})

@@ -1,21 +1,61 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/css/demo3/style.css";
-import "../styles/fonts/feather-font/css/iconfont.css";
+import "components/styles/css/demo3/style.css";
+import "components/styles/fonts/feather-font/css/iconfont.css";
 import { useForm } from "react-hook-form";
-import FormWrapper from "../form/FormWrapper";
-import FormSection from "../form/FormSection";
+import FormWrapper from "components/form/FormWrapper";
+import FormSection from "components/form/FormSection";
 import core from "js/core";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
+import { createRequestConfig } from "js/form/createRequestConfig";
 
 export default function Patient({
-    args = { form: "patient", action: "read" },
+    args = { form: "patient", action: "create" },
 }) {
     const { t } = useTranslation();
     let viewConfig = core.formLoader.getViewConfig(args.form);
     let viewFunctions = core.formLoader.getViewFunctions(args.form);
-
+    const action = args.action;
+    const { patientId } = useParams();
+    const [patient, setPatient] = useState({});
+    const [error, setError] = useState(false);
     const form = useForm();
+    useEffect(() => {
+        if (
+            patientId &&
+            (action === "update" || action === "delete") &&
+            Object.keys(patient).length === 0
+        ) {
+            const data = { patientId };
+            createRequestConfig(
+                data,
+                viewConfig,
+                { ...args, action: "read" },
+                args.form
+            )
+                .then((res) => {
+                    console.log({ res });
+                    const newData = {
+                        ...res.data,
+                        consentimientoCheck: true,
+                        termsCheck: true,
+                    };
+                    setPatient(newData);
+                    form.reset(newData);
+                })
+                .catch((err) => {
+                    setError(true);
+                    console.log(err.response);
+                });
+        }
+    }, []);
+    if (error) return <div>Ocurrió un error procesando tu solicitud</div>;
+    if (action === "update" && Object.keys(patient).length === 0)
+        return <div>Cargando...</div>;
+
+    if (action === "delete" && Object.keys(patient).length === 0)
+        return <div>Cargando...</div>;
     // const onSubmit = (data) => {
     //     console.log(data);
     // };
@@ -32,7 +72,7 @@ export default function Patient({
     //     });
     // };
     return (
-        <React.Fragment>
+        <>
             <div className="tabsP">
                 <ul
                     className="nav nav-tabs nav-tabs-line"
@@ -120,6 +160,6 @@ export default function Patient({
                     </div>
                 </div>
             </FormWrapper>
-        </React.Fragment>
+        </>
     );
 }

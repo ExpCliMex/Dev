@@ -1,6 +1,5 @@
 import React from "react";
 import { FormControl } from "../form/FormControl";
-import { Label } from "./Label";
 import { useTranslation } from "react-i18next";
 
 function Submit({ id, type = "submit", properties = {} }) {

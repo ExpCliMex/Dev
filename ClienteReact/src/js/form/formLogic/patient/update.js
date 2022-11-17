@@ -36,10 +36,6 @@ function onChange_patient_sex(e, form) {
 }
 
 async function onSubmit(data, viewConfig, args, form) {
-    /*console.log(data);
-    console.log(viewConfig);
-    console.log(args);
-    console.log(form);*/
     console.log({ data, viewConfig, args, form });
     const res = await createRequestConfig(data, viewConfig, args, form);
     console.log({ res });

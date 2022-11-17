@@ -1,9 +1,10 @@
 import React from "react";
-import { FormControl } from "../form/FormControl";
-import { Label } from "./Label";
+import { FormControl } from "components/form/FormControl";
+import { Label } from "components/input/Label";
 import { useTranslation } from "react-i18next";
 import pp from "js/form/propertiesProcessing";
 import { ErrorMessage } from "@hookform/error-message";
+import { ErrorDateField } from "components/errors/ErrorDateField";
 
 function DateField({
     id,
@@ -33,6 +34,9 @@ function DateField({
     //Class processing
     formControlClassName =
         properties.formControlClassName || "col-8 col-md-6 col-lg-4 col-xxl-3";
+    if (form.formState.errors[id]) {
+        propertiesCompleted.className = `${propertiesCompleted.className} error-input-text`;
+    }
     //register options
     let propertiesProcessed = {};
     // delete options of register from properties completed, and pass to register options
@@ -42,7 +46,6 @@ function DateField({
         viewFunctions,
         form
     );
-
     return (
         <FormControl className={formControlClassName}>
             <Label htmlFor={id} />
@@ -53,9 +56,7 @@ function DateField({
             <ErrorMessage
                 name={id}
                 errors={form.formState.errors}
-                render={({ message }) => (
-                    <div className="error-message">{message}</div>
-                )}
+                render={ErrorDateField}
             />
         </FormControl>
     );

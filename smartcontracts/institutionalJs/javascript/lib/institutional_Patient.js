@@ -302,6 +302,26 @@ class institutional_Patient extends Contract {
   }
 
   /**
+   * Delete Logic patient
+   * @param {Context} ctx
+   * @param {string} patientData
+   */
+  async deleteLogicPatient (ctx, patientData) {
+    console.info(`### START: Delete Logically ${collection} ###`);
+    const patient = JSON.parse(patientData.toString());
+    const {id: patientId} = patient;
+    const patientAsBytes = await ctx.stub.getPrivateData(collection, patientId);
+    if (!patientAsBytes || patientAsBytes.length === 0) {
+      throw new Error(`${patientId} does not exist`);
+    }
+    const oldPatient = JSON.parse(patientAsBytes.toString());
+    const deletedPatient = { ...oldPatient, active: false };
+    await ctx.stub.putPrivateData(collection, patientId, Buffer.from(JSON.stringify(deletedPatient)));
+    console.info(`### END: Delete Logically ${collection} ###`);
+    return JSON.stringify(deletedPatient);
+  }
+
+  /**
    * Query patient
    * @param {Context} ctx
    * @param {string} patientData
